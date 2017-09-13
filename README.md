@@ -1,0 +1,2 @@
+# yoisho
+Yoisho (fictional) bank
