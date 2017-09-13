@@ -1,0 +1,39 @@
+{
+  "swagger" : "2.0",
+  "host" : "172.18.0.2:8065",
+  "basePath" : "/ycurrency",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/get_currency" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "get_currency",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "description" : "The desired currency",
+          "required" : true,
+          "in" : "query",
+          "name" : "currency",
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    }
+  },
+  "info" : {
+    "title" : "Yoisho Currency Exchange",
+    "description" : "",
+    "version" : "1.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

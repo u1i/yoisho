@@ -1,0 +1,26 @@
+version: '2'
+services:
+
+    yoisho:
+        image: yoisho-9
+        links:
+        - yoisho-ldap
+        volumes:
+        -  /Users/uli/tmp:/tmp/install
+
+        hostname: yoisho
+        ports:
+        - 8088:8080
+        - 8188:8188
+        - 8189:8189
+        environment:
+        - uli=329873232
+        - ldap-hostS=yoisho-ldap
+
+    yoisho-ldap:
+        image: yoisho-ldap-3
+        environment:
+        - none=32876
+        ports:
+        - 389:389
+        hostname: yoisho-ldap
