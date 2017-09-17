@@ -18,6 +18,10 @@ A webservice that gives you total assets and debt of the bank. Each request will
 
 <img src="https://raw.githubusercontent.com/u1i/yoisho/master/resources/wsdl.png" width="450"/>
 
+### Import & run the request in SoapUI
+
+<img src="https://raw.githubusercontent.com/u1i/yoisho/master/resources/soap.png" width="450"/>
+
 
 ## Currency Exchange Rates - REST/JSON
 
