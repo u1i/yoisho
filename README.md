@@ -6,11 +6,13 @@ Webservices and REST APIs that expose bank related data services, you can use th
 
 ## Bank Assets - SOAP/XML
 
-Run the container (choosing port 8080, feel free to modify):
+A webservice that gives you total assets and debt of the bank. Each request will produce a slightly different result - it's a busy bank so cash is flowing in & out constantly!
+
+### Run the container (choosing port 8080, feel free to modify):
 
 `docker run -d -p 8080:80 u1ih/yoisho-assets`
 
-Get the WSDL:
+### Get the WSDL:
 
 `curl http://localhost:8080/?WSDL`
 
@@ -19,17 +21,19 @@ Get the WSDL:
 
 ## Currency Exchange Rates - REST/JSON
 
-Run the container (choosing port 8080, feel free to modify):
+This API gives you exchange rates for currenciies (USD, GBP and SGD) that the bank buys and sells. Each time you ask for a quote the amounts might be slighly different - they're really busy adjusting the rates constantly!
+
+### Run the container (choosing port 8080, feel free to modify):
 
 `docker run -d -p 8080:80 u1ih/yoisho-currency`
 
-Get the Swagger:
+### Get the Swagger:
 
 `curl http://localhost:8080/swagger`
 
 > {"info": {"version": "1.0", "description": "", "title": "Yoisho Currency Exchange"}, "paths": {"/get_currency": {"get": {"responses": {"default": {"description": "successful operation"}}, "produces": ["application/json"], "description": "", "parameters": [{"required": true, "type": "string", "description": "The desired currency", "name": "currency", "in": "query"}], "operationId": "get_currency"}}}, "schemes": ["http"], "basePath": "/currency", "host": "", "x-axway": {"deprecated": false, "serviceType": "rest", "basePaths": [""], "corsEnabled": true, "tags": {}}, "swagger": "2.0"}
 
-Get exchange rates - USD (also supported: GBP, SGD)
+### Get exchange rates - USD (also supported: GBP, SGD)
 
 `curl http://localhost:8080/get_currency?currency=USD`
 
