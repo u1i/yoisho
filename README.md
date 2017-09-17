@@ -1,7 +1,5 @@
 <img src="https://raw.githubusercontent.com/u1i/yoisho/master/resources/yoisho-logo.png" width="250"/>
 
-Easy to run docker images that expose endpoints you can use for demos and testing.
-
 ## Bank Assets - SOAP/XML
 
 Run the container:
