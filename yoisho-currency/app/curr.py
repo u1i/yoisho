@@ -29,7 +29,8 @@ def get_currency():
 
         rcur['timestamp']=str(datetime.now())
 
-	return dict(data=rcur)
+	#return dict(data=rcur)
+	return dict(rcur)
 
 
 
