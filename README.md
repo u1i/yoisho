@@ -29,7 +29,7 @@ This API gives you exchange rates for currenciies (USD, GBP and SGD) that the ba
 
 ### Run the container (choosing port 8080, feel free to modify):
 
-`docker run -d -p 8080:80 u1ih/yoisho-currency`
+`docker run -d -p 8080:8080 u1ih/yoisho-currency`
 
 ### Get the Swagger:
 
