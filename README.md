@@ -42,3 +42,22 @@ This API gives you exchange rates for currenciies (USD, GBP and SGD) that the ba
 `curl http://localhost:8080/get_currency?currency=USD`
 
 > {"sell": "489.185", "timestamp": "2017-09-17 02:58:40.194337", "buy": "389.105"}
+
+## Stock Quote - REST/JSON
+
+This API returns a stock quote. The data updates every minute, it's also sending additional Cache-Control headers.
+
+### Run the container
+
+`docker run --rm -d -p 8080:8080 u1ih/yoisho-stockquote:latest`
+
+### Get the Swagger
+
+`curl http://localhost:8080/swagger`
+
+### Get current quote
+
+`curl http://localhost:8080/get_currency?currency=USD`
+
+> {"message": "Stock Price refreshes every minute", "stockprice": "371.44"}
+
