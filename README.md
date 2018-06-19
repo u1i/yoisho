@@ -4,7 +4,7 @@ Webservices and REST APIs that expose bank related data services, you can use th
 
 <img src="https://raw.githubusercontent.com/u1i/yoisho/master/resources/yoisho-logo.png" width="250"/>
 
-## Bank Assets - SOAP/XML
+# Bank Assets - SOAP/XML
 
 A webservice that gives you total assets and debt of the bank. Each request will produce a slightly different result - it's a busy bank so cash is flowing in & out constantly!
 
@@ -23,7 +23,7 @@ A webservice that gives you total assets and debt of the bank. Each request will
 <img src="https://raw.githubusercontent.com/u1i/yoisho/master/resources/soap.png" width="650"/>
 
 
-## Currency Exchange Rates - REST/JSON
+# Currency Exchange Rates - REST/JSON
 
 This API gives you exchange rates for currenciies (USD, GBP and SGD) that the bank buys and sells. Each time you ask for a quote the amounts might be slighly different - they're really busy adjusting the rates constantly!
 
@@ -43,7 +43,7 @@ This API gives you exchange rates for currenciies (USD, GBP and SGD) that the ba
 
 > {"sell": "489.185", "timestamp": "2017-09-17 02:58:40.194337", "buy": "389.105"}
 
-## Stock Quote - REST/JSON
+# Stock Quote - REST/JSON
 
 This API returns a stock quote. The data updates every minute, it's also sending additional Cache-Control headers.
 
