@@ -55,9 +55,11 @@ This API returns a stock quote. The data updates every minute, it's also sending
 
 `curl http://localhost:8080/swagger`
 
+> { "swagger" : "2.0", "host" : "", "basePath" : "", "schemes" : [ "http" ], "paths" : { "/get_quote" : { "get" : { "description" : "", "operationId" : "get_quote", "produces" : [ "application/json" ], "responses" : { "default" : { "description" : "successful operation" } } } } }, "info" : { "title" : "Yoisho Stock Quote", "description" : "", "version" : "1.0" }, "x-axway" : { "corsEnabled" : true, "basePaths" : [ "" ], "serviceType" : "rest", "deprecated" : false, "tags" : { } } }
+
 ### Get current quote
 
-`curl http://localhost:8080/get_currency?currency=USD`
+`curl http://localhost:8080/get_quote`
 
 > {"message": "Stock Price refreshes every minute", "stockprice": "371.44"}
 
