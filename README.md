@@ -25,7 +25,7 @@ A webservice that gives you total assets and debt of the bank. Each request will
 
 # Currency Exchange Rates - REST/JSON
 
-This API gives you exchange rates for currenciies (USD, GBP and SGD) that the bank buys and sells. Each time you ask for a quote the amounts might be slighly different - they're really busy adjusting the rates constantly!
+This API gives you exchange rates for currencies (USD, GBP and SGD) that the bank buys and sells. Each time you ask for a quote the amounts might be slighly different - they're really busy adjusting the rates constantly!
 
 ### Run the container (choosing port 8080, feel free to modify):
 
