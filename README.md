@@ -126,8 +126,6 @@ Login with either 'dave' or 'jane' (any random password).
 
 ### Get account balance for user
 
-`curl -X GET \
-  http://localhost:8080/balance \
-  -H 'Authorization: Bearer e1Q0DJMv0VZTdBwTwAWqyoAFlpFubfJ6u6unCaOV.MTUzMjM4OTI3OQ=='`
+`curl -X GET http://localhost:8080/balance -H 'Authorization: Bearer e1Q0DJMv0VZTdBwTwAWqyoAFlpFubfJ6u6unCaOV.MTUzMjM4OTI3OQ=='`
 
 > {"account_owner": "dave", "account_balance": "10,187.91"}
