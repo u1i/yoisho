@@ -65,7 +65,7 @@ This API returns the stock price of Yoisho Banking Corp. The data updates every 
 
 # Fixed Deposit Calculator - REST/JSON
 
-This API calculates the total interest earned from a fixed deposit, along with a breakdown for the number of years the deposit is running.
+This API calculates the total interest earned from a fixed deposit, along with a breakdown for the number of years the deposit is running. Parameters: amount, number of years the fixed deposit will run
 
 ### Run the container
 
