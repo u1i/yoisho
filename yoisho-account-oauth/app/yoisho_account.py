@@ -135,7 +135,9 @@ def getaccesstoken():
 def getbalance():
 
     try:
-        access_token = request.query['access_token']
+        #access_token = request.query['access_token']
+        bearer = request.environ.get('HTTP_AUTHORIZATION','')
+        access_token=bearer[7:]
     except:
         response.content_type = "application/json"
         response.status = 400
@@ -154,7 +156,7 @@ def getbalance():
     if catch == 0:
         response.content_type = "application/json"
         response.status = 400
-        return '{"error":"invalid access_token"}'
+        return '{"error":"invalid access_token "}'
 
     token_time = int(base64.urlsafe_b64decode(access_token[41:]))
     current_time=int(time.time())

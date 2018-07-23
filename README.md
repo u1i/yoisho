@@ -117,15 +117,17 @@ Login with either 'dave' or 'jane' (any random password).
 
 > ?code=4990047
 
-### Get the access_token
+### Get the access_token - valid for 60 seconds
 
-`http://localhost:8080/access_token?code= 4990047&client_id=7b6fc8ed5127b0b2f076d&client_secret=724e6890757b0ae624684b70e111b705fe6b050c`
+`curl http://localhost:8080/access_token?code= 4990047&client_id=7b6fc8ed5127b0b2f076d&client_secret=724e6890757b0ae624684b70e111b705fe6b050c`
 
 > {"token_type": "bearer", "scope": "read", "access_token": "eSlcNwnLxTuzsYXyzFrhGGU3mrCKPxQ5fy51Jx93.MTUzMjM1NDM0OA=="}
-> 
+>
 
 ### Get account balance for user
 
-`http://localhost:8080/balance?access_token=eDGzRXoDwAA5bd05lV0CF7enX3ZXtA9s7Seewwvj.MTUzMjM1NDQxMA==`
+`curl -X GET \
+  http://localhost:8080/balance \
+  -H 'Authorization: Bearer e1Q0DJMv0VZTdBwTwAWqyoAFlpFubfJ6u6unCaOV.MTUzMjM4OTI3OQ=='`
 
 > {"account_owner": "dave", "account_balance": "10,187.91"}
