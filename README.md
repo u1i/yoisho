@@ -4,6 +4,14 @@ Webservices and REST APIs that expose bank related data services, you can use th
 
 <img src="https://raw.githubusercontent.com/u1i/yoisho/master/resources/yoisho-logo.png" width="250"/>
 
+Available APIs and Webservices:
+
+* [Bank Assets - SOAP/XML | 2 methods](#bank-assets---soapxml)
+* [Currency Exchange Rates - REST/JSON | 1 parameter](#currency-exchange-rates---restjson)
+* [Stock Quote - REST/JSON | 0 parameters | Cached output.](#stock-quote---restjson)
+* [Fixed Deposit Calculator - REST/JSON | 2 parameters | complex output](#fixed-deposit-calculator---restjson)
+
+
 # Bank Assets - SOAP/XML
 
 A webservice that gives you total assets and debt of the bank. Each request will produce a slightly different result - it's a busy bank so cash is flowing in & out constantly!
