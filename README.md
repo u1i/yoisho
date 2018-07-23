@@ -112,6 +112,8 @@ Access this URL in the browser (replace the redirect_uri with your own):
 
 `http://localhost:8080/authorize?redirect_uri=http://www.sotong.io&client_id=7b6fc8ed5127b0b2f076d`
 
+Login with either 'dave' or 'jane' (any random password).
+
 > ?code=4990047
 
 ### Get the access_token
