@@ -6,11 +6,11 @@ Webservices and REST APIs that expose bank related data services, you can use th
 
 Available APIs and Webservices:
 
-* [Bank Assets - SOAP/XML | 2 methods](#bank-assets---soapxml)
-* [Currency Exchange Rates - REST/JSON | 1 parameter](#currency-exchange-rates---restjson)
-* [Stock Quote - REST/JSON | 0 parameters | Cached output.](#stock-quote---restjson)
-* [Fixed Deposit Calculator - REST/JSON | 2 parameters | complex output](#fixed-deposit-calculator---restjson)
-
+* Bank Assets - SOAP/XML | 2 methods
+* Currency Exchange Rates - REST/JSON | 1 parameter
+* Stock Quote - REST/JSON | 0 parameters | Cached output.
+* Fixed Deposit Calculator - REST/JSON | 2 parameters
+* Account Balance - OAuth (3-legged)
 
 # Bank Assets - SOAP/XML
 
@@ -90,3 +90,39 @@ This API calculates the total interest earned from a fixed deposit, along with a
 `curl "http://localhost:8080/calculate?amount=50000&years=12"`
 
 > {"info": "Current interest rate is 3.15% pa.", "yield_breakdown_by_year": [{"amount": "50,000.00", "year": "1"}, {"amount": "51,575.00", "year": "2"}, {"amount": "53,199.61", "year": "3"}, {"amount": "54,875.40", "year": "4"}, {"amount": "56,603.98", "year": "5"}, {"amount": "58,387.00", "year": "6"}, {"amount": "60,226.19", "year": "7"}, {"amount": "62,123.32", "year": "8"}, {"amount": "64,080.20", "year": "9"}, {"amount": "66,098.73", "year": "10"}, {"amount": "68,180.84", "year": "11"}, {"amount": "70,328.53", "year": "12"}], "deposit_amount": "50,000.00", "yield_amount": "70,328.53", "years": "12"}
+
+# Account Balance - REST/JSON OAuth
+
+Gives you a 3-legged OAuth powered account balance with consumer banking login.
+
+### Credentials:
+
+* client_id: 7b6fc8ed5127b0b2f076d
+* client_secret: 724e6890757b0ae624684b70e111b705fe6b050c
+* user accounts: jane, dave (use any random password)
+
+### Run the container
+
+( need to fix a bug before it works )
+`docker run --rm -d -p 8080:8080 u1ih/yoisho-account:latest`
+
+### Start the flow
+
+Access this URL in the browser (replace the redirect_uri with your own):
+
+`http://localhost:8080/authorize?redirect_uri=http://www.sotong.io&client_id=7b6fc8ed5127b0b2f076d`
+
+> ?code=4990047
+
+### Get the access_token
+
+`http://localhost:8080/access_token?code= 4990047&client_id=7b6fc8ed5127b0b2f076d&client_secret=724e6890757b0ae624684b70e111b705fe6b050c`
+
+> {"token_type": "bearer", "scope": "read", "access_token": "eSlcNwnLxTuzsYXyzFrhGGU3mrCKPxQ5fy51Jx93.MTUzMjM1NDM0OA=="}
+> 
+
+### Get account balance for user
+
+`http://localhost:8080/balance?access_token=eDGzRXoDwAA5bd05lV0CF7enX3ZXtA9s7Seewwvj.MTUzMjM1NDQxMA==`
+
+> {"account_owner": "dave", "account_balance": "10,187.91"}

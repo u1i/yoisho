@@ -150,6 +150,7 @@ span.psw {
       <label for="psw" autocomplete="off"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
       <input type="hidden" name="redirect" value="{{ redirect_uri }}">
+      <input type="hidden" name="client_id" value="{{ client_id }}">
       <button type="submit">Login</button>
 
     </div>

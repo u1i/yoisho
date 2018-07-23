@@ -15,10 +15,12 @@ def depositcalc():
 
     if deposit > 100000:
         response.status = 400
+        response.content_type = "application/json"
         return '{"info":"Fixed deposits are only available for amounts up to 100k USD."}'
 
     if years > 20:
         response.status = 400
+        response.content_type = "application/json"
         return '{"info":"Fixed deposits can run only for a maximum of up to 20 years."}'
 
     robj={}
