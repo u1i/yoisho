@@ -9,6 +9,7 @@ RUN apk add py-pip
 RUN mkdir /app
 RUN pip install cherrypy bottle
 COPY app /app
+RUN ln -s /app/views /views
 
 CMD ["python","/app/server.py"]
 

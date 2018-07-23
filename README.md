@@ -6,10 +6,10 @@ Webservices and REST APIs that expose bank related data services, you can use th
 
 Available APIs and Webservices:
 
-* Bank Assets - SOAP/XML | 2 methods
-* Currency Exchange Rates - REST/JSON | 1 parameter
-* Stock Quote - REST/JSON | 0 parameters | Cached output.
-* Fixed Deposit Calculator - REST/JSON | 2 parameters
+* Bank Assets - SOAP/XML, 2 methods
+* Currency Exchange Rates - REST/JSON, 1 parameter
+* Stock Quote - REST/JSON, 0 parameters, cached output.
+* Fixed Deposit Calculator - REST/JSON, 2 parameters, complex output
 * Account Balance - OAuth (3-legged)
 
 # Bank Assets - SOAP/XML
@@ -103,7 +103,6 @@ Gives you a 3-legged OAuth powered account balance with consumer banking login.
 
 ### Run the container
 
-( need to fix a bug before it works )
 `docker run --rm -d -p 8080:8080 u1ih/yoisho-account:latest`
 
 ### Start the flow
