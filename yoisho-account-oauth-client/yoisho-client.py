@@ -36,10 +36,6 @@ def index():
 
         access=j["access_token"]
 
-#        headers = {'Content-Type': "application/json; charset=UTF-8", 'Accept': "application/json"}
-#        data = {"client_id": client_id, "client_secret":client_secret, "code": code}
-#        res = requests.post(url, json=data, headers=headers)
-
         url = oauth_url + '/balance'
         headers = {'Content-Type': "application/json; charset=UTF-8", 'Accept': "application/json", "Authorization": "Bearer " + access}
         res = requests.get(url, headers=headers)
@@ -51,6 +47,5 @@ def index():
 
         outp=outp + "Hello " + str(user) + ", your current account balance with Yoisho is: " + balance
     return outp
-
 
 run(host='0.0.0.0', port=port)
