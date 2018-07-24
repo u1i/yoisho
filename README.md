@@ -135,3 +135,8 @@ Login with either 'dave' or 'jane' (any random password).
 `curl -X GET http://localhost:8080/balance -H 'Authorization: Bearer e1Q0DJMv0VZTdBwTwAWqyoAFlpFubfJ6u6unCaOV.MTUzMjM4OTI3OQ=='`
 
 > {"account_owner": "dave", "account_balance": "10,187.91"}
+> 
+
+### OAuth client - Python implementation
+
+Here's a nice web based client implementation that shows the entire flow in the browser: [Yoisho OAuth Client (Python)](https://github.com/u1i/yoisho/tree/master/yoisho-account-oauth-client)
