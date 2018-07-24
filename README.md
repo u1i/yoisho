@@ -125,7 +125,7 @@ Login with either 'dave' or 'jane' (any random password).
 
 ### Get the access_token - valid for 60 seconds
 
-`curl http://localhost:8080/access_token?code= 4990047&client_id=7b6fc8ed5127b0b2f076d&client_secret=724e6890757b0ae624684b70e111b705fe6b050c`
+`curl http://localhost:8080/access_token?code=4990047&client_id=7b6fc8ed5127b0b2f076d&client_secret=724e6890757b0ae624684b70e111b705fe6b050c`
 
 > {"token_type": "bearer", "scope": "read", "access_token": "eSlcNwnLxTuzsYXyzFrhGGU3mrCKPxQ5fy51Jx93.MTUzMjM1NDM0OA=="}
 >
