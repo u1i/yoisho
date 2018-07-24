@@ -93,7 +93,7 @@ This API calculates the total interest earned from a fixed deposit, along with a
 
 # Account Balance - REST/JSON OAuth
 
-Gives you a 3-legged OAuth powered account balance with consumer banking login.
+Gives you an account balance API with a 3-legged OAuth flow including consumer banking login.
 
 ![](https://raw.githubusercontent.com/u1i/yoisho/master/resources/account-2.png)
 
