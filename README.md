@@ -125,6 +125,8 @@ Login with either 'dave' or 'jane' (any random password).
 
 ### Get the access_token - valid for 60 seconds
 
+Use the code from the previous step to exchange it for an access token. Of course, you'd typically do that server side.
+
 `curl http://localhost:8080/access_token?code=4990047&client_id=7b6fc8ed5127b0b2f076d&client_secret=724e6890757b0ae624684b70e111b705fe6b050c`
 
 > {"token_type": "bearer", "scope": "read", "access_token": "eSlcNwnLxTuzsYXyzFrhGGU3mrCKPxQ5fy51Jx93.MTUzMjM1NDM0OA=="}
@@ -132,11 +134,13 @@ Login with either 'dave' or 'jane' (any random password).
 
 ### Get account balance for user
 
-`curl -X GET http://localhost:8080/balance -H 'Authorization: Bearer e1Q0DJMv0VZTdBwTwAWqyoAFlpFubfJ6u6unCaOV.MTUzMjM4OTI3OQ=='`
+Now with this access token we can call the actual API and retrieve the account balance from the resource owner, which is the banking client.
+
+`curl -X GET http://localhost:8080/balance -H 'Authorization: Bearer eSlcNwnLxTuzsYXyzFrhGGU3mrCKPxQ5fy51Jx93.MTUzMjM1NDM0OA=='`
 
 > {"account_owner": "dave", "account_balance": "10,187.91"}
 > 
 
 ### OAuth client - Python implementation
 
-Here's a nice web based client implementation that shows the entire flow in the browser: [Yoisho OAuth Client (Python)](https://github.com/u1i/yoisho/tree/master/yoisho-account-oauth-client)
+Here's a simple web based client implementation that shows the entire flow in the browser - the banking customer logs in and authorizes the app to access his account balance on their behalf: [Yoisho OAuth Client (Python)](https://github.com/u1i/yoisho/tree/master/yoisho-account-oauth-client)
