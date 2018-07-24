@@ -143,4 +143,4 @@ Now with this access token we can call the actual API and retrieve the account b
 
 ### OAuth client - Python implementation
 
-Here's a simple web based client implementation that shows the entire flow in the browser - the banking customer logs in and authorizes the app to access his account balance on their behalf: [Yoisho OAuth Client (Python)](https://github.com/u1i/yoisho/tree/master/yoisho-account-oauth-client)
+Here's a simple web based client implementation that shows the entire flow in the browser - the banking customer logs in and authorizes the app to access the account balance on their behalf: [Yoisho OAuth Client (Python)](https://github.com/u1i/yoisho/tree/master/yoisho-account-oauth-client)
