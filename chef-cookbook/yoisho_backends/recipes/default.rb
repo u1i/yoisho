@@ -20,6 +20,19 @@ docker_container 'yoishocurrency' do
   port '8080:8080'
 end
 
+# Bank Assets
+docker_image 'u1ih/yoisho-assets' do
+  tag 'latest'
+  action :pull
+  notifies :redeploy, 'docker_container[yoishoassets]'
+end
+
+docker_container 'yoishoassets' do
+  repo 'u1ih/yoisho-assets'
+  tag 'latest'
+  port '8081:80'
+end
+
 # Apache for hosting our landing page
 package 'apache2'
 
