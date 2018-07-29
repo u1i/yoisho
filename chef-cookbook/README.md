@@ -1,6 +1,6 @@
 # Yoisho - Chef Cookbook
 
-A chef cookbook that installs the API backends of the [Yoisho Project](https://github.com/u1i/yoisho/tree/master/chef-cookbook) on a Linux node.
+A chef cookbook that gives you a machine with all API backends of the [Yoisho Project](https://github.com/u1i/yoisho/tree/master/chef-cookbook).
 
 <img src="https://raw.githubusercontent.com/u1i/yoisho/master/resources/yoisho-logo.png" width="250"/>
 
