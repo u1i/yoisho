@@ -19,3 +19,16 @@ docker_container 'yoishocurrency' do
   tag 'latest'
   port '8080:8080'
 end
+
+# Apache for hosting our landing page
+package 'apache2'
+
+service 'apache2' do
+  supports status: true
+  action [:enable, :start]
+end
+
+template '/var/www/html/index.html' do
+  source 'index.html.erb'
+end
+
