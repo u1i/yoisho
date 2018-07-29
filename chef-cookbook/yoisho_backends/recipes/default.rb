@@ -2,4 +2,8 @@
 # Cookbook:: yoisho_backends
 # Recipe:: default
 #
-# Copyright:: 2018, The Authors, All Rights Reserved.
+# Author: Uli Hitzel - uli.hitzel@gmail.com
+
+# Install Docker
+
+docker_installation 'default'
