@@ -2,6 +2,8 @@
 
 A chef cookbook that installs the backends of the Yoisho project on a Linux node.
 
+<img src="https://raw.githubusercontent.com/u1i/yoisho/master/resources/yoisho-logo.png" width="250"/>
+
 The recipe does the following:
 
 * installs Docker on the host and starts the service
