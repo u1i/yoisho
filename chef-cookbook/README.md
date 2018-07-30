@@ -42,8 +42,9 @@ Assuming you have your Chef server running (somewhere) and knife configured on y
 
 * Ubuntu Server 16.04 LTS (AWS AMI ami-51a7aa2d)
 
-## Chef Lessons Learned & Insights
+## Chef - Lessons Learned & Insights
 
+* learn.chef.io is awsome!
 * wow. One line of code (ok, plus the 'depends' declaration) gets you Docker installed on your target machine.
 * attribute intrapolation is extremely powerful but can be tricky.
 * VI swap files (.swp) in the attributes or recipe directory will mess up chef-client run, and you'll see error messages you won't understand. Better close VI before uploading a cookbook.
