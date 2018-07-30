@@ -36,7 +36,7 @@ Assuming you have your Chef server running (somewhere) and knife configured on y
 
 `http://ip-address` should now give you a landing page with links to all the endpoints, including examples and Swagger definitions and WSDL's of the SOAP services.
 
-![](https://raw.githubusercontent.com/u1i/yoisho/master/resources/ychefpage1.png)
+![](https://raw.githubusercontent.com/u1i/yoisho/master/resources/ychefpage2.png)
 
 ## Tested on the following operating systems:
 
