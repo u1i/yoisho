@@ -1,1 +1,5 @@
-default['yoisho']['currency_port'] = '8082'
+default['yoisho']['currency_port'] = '8081'
+default['yoisho']['assets_port'] = '8082'
+default['yoisho']['stockquote_port'] = '8083'
+default['yoisho']['deposit_port'] = '8084'
+default['yoisho']['account_port'] = '8085'
