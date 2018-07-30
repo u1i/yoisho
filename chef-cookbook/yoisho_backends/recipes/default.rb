@@ -88,6 +88,6 @@ end
 
 template '/var/www/html/index.html' do
   source 'index.html.erb'
-  variables({ :currency_port => node['yoisho']['currency_port'], :assets_port => node['yoisho']['assets_port'], :deposit_port => node['yoisho']['deposit_port'], :stockquote_port => node['yoisho']['stockquote_port'], :account_port => node['yoisho']['account_port'], :ec2publicip => node['ec2publicip'] })
+  variables({ :currency_port => node['yoisho']['currency_port'], :assets_port => node['yoisho']['assets_port'], :deposit_port => node['yoisho']['deposit_port'], :stockquote_port => node['yoisho']['stockquote_port'], :account_port => node['yoisho']['account_port'] })
 end
 
