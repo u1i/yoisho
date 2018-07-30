@@ -14,6 +14,28 @@ A chef cookbook that gives you a machine with all API backends of the [Yoisho Pr
 
 * Ubuntu Server 16.04 LTS (AWS AMI ami-51a7aa2d)
 
+## How to use
+
+### 1 - Create a Linux machine
+
+I've tested the cookbook on an AWS machine, the script `01-create-ec2-machine-ubuntu.sh` helps yyou create one if you have the AWS cli set up on your workstation. Change it to use your SSH key instead and use the AMI from the AWS region of your choice.
+
+### 2 - (Optional) Modify the port assignments
+
+Each API & SOAP service gets a dedicated HTTP port, you can change the defaults in the cookbook: `attributes/default.rb`
+
+### 3 - Bootstrap the machine and run the cookbook
+
+`02-list-ec2-instances.sh` is a quick helper to list your EC2 instances, you just need to get the IP address of the Linux box for the next step. AWS Console in the browser will get you there as well.
+
+Assuming you have your Chef server running (somewhere) and knife configured on your workstation, you can now configure the node and install everything using the cookbook:
+
+`03-bootstrap-ubuntu-machine-with-recipe.sh`
+
+> knife bootstrap $ip --ssh-user $sshuser --sudo --identity-file $ssh_key --node-name $nodename --run-list 'recipe[yoisho_backends]'
+
+> knife node show $nodename
+
 ## To Do
 
 * Test & adapt for other platforms - CentOS, RHEL, SuSE
