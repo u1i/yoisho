@@ -48,6 +48,7 @@ Assuming you have your Chef server running (somewhere) and knife configured on y
 * wow. One line of code (ok, plus the 'depends' declaration) gets you Docker installed on your target machine.
 * attribute intrapolation is extremely powerful but can be tricky.
 * VI swap files (.swp) in the attributes or recipe directory will mess up chef-client run, and you'll see error messages you won't understand. Better close VI before uploading a cookbook.
+* an EC2 machine does not see its public IP address. node['ipaddress'] will ony give me the private IP. Will have to create an attribute that gets the output of a shell command (curl http://get-ip ...). Here I've used JavaScript in the landing page to rewrite the links based on window.location.href
 
 ## To Do
 
