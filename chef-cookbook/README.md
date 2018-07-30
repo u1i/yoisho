@@ -13,4 +13,8 @@ A chef cookbook that gives you a machine with all API backends of the [Yoisho Pr
 ## Tested on the following operating systems:
 
 * Ubuntu Server 16.04 LTS (AWS AMI ami-51a7aa2d)
- 
+
+## To Do
+
+* Test & adapt for other platforms - CentOS, RHEL, SuSE
+* Add a reverse proxy (e.g. with NGINX) to make the APIs accessible via virtual paths on the same standard HTTP port: `http://hostname/currency_api` instead of `http://hostname:8082/` 
