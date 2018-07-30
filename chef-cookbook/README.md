@@ -26,7 +26,7 @@ Each API & SOAP service gets a dedicated HTTP port, you can change the defaults 
 
 Assuming you have your Chef server running (somewhere) and knife configured on your workstation, you can now configure the node and install everything using the cookbook:
 
-`03-bootstrap-ubuntu-machine-with-recipe.sh`
+`03-bootstrap-ubuntu-machine-with-recipe.sh <ip-address>`
 
 > knife bootstrap $ip --ssh-user $sshuser --sudo --identity-file $ssh_key --node-name $nodename --run-list 'recipe[yoisho_backends]'
 
