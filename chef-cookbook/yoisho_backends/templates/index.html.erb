@@ -68,7 +68,7 @@ document.getElementById("deposit_example").innerHTML =
 "<a href='" + stripTrailingSlash(window.location.href) + ":<%= @deposit_port %>/calculate?years=10&amount=89000' target='_new'>Example: REST Call for deposit over 89k USD with 10 years run time</a>";
 
 document.getElementById("account_flow").innerHTML = 
-"<a href='" + stripTrailingSlash(window.location.href) + ":<%= @account_port %>/authorize?redirect_uri=http://www3.sotong.io&client_id=7b6fc8ed5127b0b2f076d' target='_new'>Example: REST Call to get current stock price</a>";
+"<a href='" + stripTrailingSlash(window.location.href) + ":<%= @account_port %>/authorize?redirect_uri=http://www3.sotong.io&client_id=7b6fc8ed5127b0b2f076d' target='_new'>Start the OAuth flow with the default client-id</a>";
 
 </script>
 
