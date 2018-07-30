@@ -14,7 +14,7 @@ A chef cookbook that gives you a machine with all API backends of the [Yoisho Pr
 
 ### 1 - Create a Linux machine
 
-I've tested the cookbook on an AWS machine, the script `01-create-ec2-machine-ubuntu.sh` helps yyou create one if you have the AWS cli set up on your workstation. Change it to use your SSH key instead and use the AMI from the AWS region of your choice.
+I've tested the cookbook on an AWS machine, the script `01-create-ec2-machine-ubuntu.sh` helps you create one if you have the AWS cli set up on your workstation. Change it to use your SSH key instead and use the AMI from the AWS region of your choice.
 
 ### 2 - (Optional) Modify the port assignments
 
