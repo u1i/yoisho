@@ -1,3 +1,4 @@
+# Parameter: IP address
 ip=$1
 nodename=node${RANDOM}-ubuntu
 sshuser=ubuntu
