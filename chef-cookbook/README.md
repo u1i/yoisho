@@ -10,10 +10,6 @@ A chef cookbook that gives you a machine with all API backends of the [Yoisho Pr
 * pulls the Yoisho containers for all API endpoints: currency (SOAP/REST), assets (XML/SOAP), fixed deposit (REST/JSON), stock quote (REST/JSON) and account (OAuth) and runs them
 * installs Apache2 and creates a landing page to the live endpoints and API/WSDL definitions
 
-## Tested on the following operating systems:
-
-* Ubuntu Server 16.04 LTS (AWS AMI ami-51a7aa2d)
-
 ## How to use
 
 ### 1 - Create a Linux machine
@@ -35,6 +31,10 @@ Assuming you have your Chef server running (somewhere) and knife configured on y
 > knife bootstrap $ip --ssh-user $sshuser --sudo --identity-file $ssh_key --node-name $nodename --run-list 'recipe[yoisho_backends]'
 
 > knife node show $nodename
+
+## Tested on the following operating systems:
+
+* Ubuntu Server 16.04 LTS (AWS AMI ami-51a7aa2d)
 
 ## To Do
 
