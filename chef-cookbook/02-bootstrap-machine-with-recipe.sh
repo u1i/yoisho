@@ -1,4 +1,4 @@
-ip=52.221.240.102
+ip=$1
 nodename=node${RANDOM}-ubuntu
 sshuser=ubuntu
 ssh_key=$HOME/.ssh/uh-2017-06.pem

@@ -17,7 +17,8 @@ end
 docker_container 'yoishocurrency' do
   repo 'u1ih/yoisho-currency'
   tag 'latest'
-  port '8080:8080'
+#  port '8080:8080'
+  port "#{node["yoisho"]["currency_port"]}:80"
 end
 
 # Bank Assets
@@ -43,5 +44,6 @@ end
 
 template '/var/www/html/index.html' do
   source 'index.html.erb'
+  variables({ :currency_port => node['yoisho']['currency_port'] })
 end
 
