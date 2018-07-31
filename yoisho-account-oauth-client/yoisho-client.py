@@ -24,7 +24,7 @@ def index():
     outp=outp + "<b>My Money Managing App (Yoisho Client)</b><br>"
 
     if code == "":
-        outp=outp + "Please login <a href='" + oauth_url + "/authorize?redirect_uri=http://localhost:8050/client&client_id="+client_id + "'>here</a><br>"
+        outp=outp + "Please login <a href='" + oauth_url + "/authorize?redirect_uri=" + app_url + "/client&client_id="+client_id + "'>here</a><br>"
     else:
         url = oauth_url + '/access_token?code='+ code +'&client_id=' + client_id + '&client_secret=' + client_secret
         headers = {'Content-Type': "application/json; charset=UTF-8", 'Accept': "application/json"}
