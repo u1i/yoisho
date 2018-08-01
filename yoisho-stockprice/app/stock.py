@@ -5,6 +5,7 @@ from datetime import datetime
 
 app = Bottle()
 
+@app.get('/quote/get_quote')
 @app.get('/get_quote')
 def get_quote():
 
@@ -17,13 +18,12 @@ def get_quote():
 	sresp['message'] = "Stock Price refreshes every minute"
 
 	response.headers["Cache-Control"] = "max-age=60, public"
-	
+
 	return dict(sresp)
 
 @app.get('/swagger')
 def swagger():
 
-	swagger = '''{   "swagger" : "2.0",   "host" : "",   "basePath" : "",   "schemes" : [ "http" ],   "paths" : {     "/get_quote" : {       "get" : {         "description" : "",         "operationId" : "get_quote",         "produces" : [ "application/json" ],           "responses" : {           "default" : {             "description" : "successful operation"           }         }       }     }   },   "info" : {     "title" : "Yoisho Stock Quote",     "description" : "",     "version" : "1.0"   },   "x-axway" : {     "corsEnabled" : true,     "basePaths" : [ "" ],     "serviceType" : "rest",     "deprecated" : false,     "tags" : { }   } }'''
+	swagger = '''{   "swagger" : "2.0",   "host" : "",   "basePath" : "/quote",   "schemes" : [ "http" ],   "paths" : {     "/get_quote" : {       "get" : {         "description" : "",         "operationId" : "get_quote",         "produces" : [ "application/json" ],           "responses" : {           "default" : {             "description" : "successful operation"           }         }       }     }   },   "info" : {     "title" : "Yoisho Stock Quote",     "description" : "",     "version" : "1.0"   },   "x-axway" : {     "corsEnabled" : true,     "basePaths" : [ "" ],     "serviceType" : "rest",     "deprecated" : false,     "tags" : { }   } }'''
 
 	return swagger
-
