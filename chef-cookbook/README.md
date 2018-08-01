@@ -32,6 +32,8 @@ Assuming you have your Chef server running (somewhere) and knife configured on y
 
 > knife node show $nodename
 
+Here's a [sample output from a successful run](https://raw.githubusercontent.com/u1i/yoisho/master/chef-cookbook/run-log.txt).
+
 ### 4 - Open the landing page
 
 `http://ip-address` should now give you a landing page with links to all the endpoints, including examples and Swagger definitions and WSDL's of the SOAP services.
@@ -53,4 +55,4 @@ Assuming you have your Chef server running (somewhere) and knife configured on y
 ## To Do
 
 * Test & adapt for other platforms - CentOS, RHEL, SuSE
-* Add a reverse proxy (e.g. with NGINX) to make the APIs accessible via virtual paths on the same standard HTTP port: `http://hostname/currency_api` instead of `http://hostname:8082/` 
+* Add a reverse proxy (e.g. with NGINX) to make the APIs accessible via virtual paths on the same standard HTTP port: `http://hostname/currency_api` instead of `http://hostname:8082/`
