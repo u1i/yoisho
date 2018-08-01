@@ -34,6 +34,8 @@ Assuming you have your Chef server running (somewhere) and knife configured on y
 
 Here's a [sample output from a successful run](https://raw.githubusercontent.com/u1i/yoisho/master/chef-cookbook/run-log.txt).
 
+Chef Manage for that node should then [look similar to this](https://raw.githubusercontent.com/u1i/yoisho/master/resources/chef-manage.png).
+
 ### 4 - Open the landing page
 
 `http://ip-address` should now give you a landing page with links to all the endpoints, including examples and Swagger definitions and WSDL's of the SOAP services.
