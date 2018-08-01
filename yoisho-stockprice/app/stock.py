@@ -5,6 +5,7 @@ from datetime import datetime
 
 app = Bottle()
 
+# allow both paths
 @app.get('/quote/get_quote')
 @app.get('/get_quote')
 def get_quote():
