@@ -52,7 +52,7 @@ Chef Manage for that node should then [look similar to this](https://raw.githubu
 * wow. One line of code (ok, plus the 'depends' declaration) gets you Docker installed on your target machine.
 * attribute interpolation is extremely powerful but can be tricky.
 * VI swap files (.swp) in the attributes or recipe directory will mess up chef-client run, and you'll see error messages you won't understand. Better close VI before uploading a cookbook.
-* an EC2 machine does not see its public IP address. node['ipaddress'] will ony give me the private IP. Will have to create an attribute that gets the output of a shell command (curl http://get-ip ...). Here I've used JavaScript in the landing page to rewrite the links based on window.location.href - the aws cookbook will likely offer help.
+* an EC2 machine does not see its public IP address. node['ipaddress'] will ony give me the private IP. Will have to create an attribute that gets the output of a shell command (curl http://get-ip ...). Here I've used JavaScript in the landing page to rewrite the links based on window.location.href - the aws cookbook will likely offer help. **Update Aug 12:** so in fact, chef is giving us an attribute cloud.public_ipv4_addrs for ec2 instances!
 
 ## To Do
 
