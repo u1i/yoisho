@@ -42,6 +42,17 @@ def del_atm(id):
         response.status = 404
         return dict({"message":"ID not found"})
 
+@app.route('/atm/locations', method='POST')
+def create_atm():
+
+    f = open(db + "/" + str(randint(100,999)), mode='w+')
+    stuff=json.load(request.body)
+
+    f.write(str(stuff))
+    f.close()
+    response.status = 201
+    return "Created"
+
 @app.get('/atm/locations')
 def get_all_atm():
 
@@ -56,13 +67,17 @@ def get_all_atm():
 			file_content = file_handle.read()
 		file_handle.close()
 
-		this_atm=json.loads(file_content)
+        try:
+    		this_atm=json.loads(file_content)
 
-		this_atm["id"] = loc
-		locs_list.append(this_atm)
+    		this_atm["id"] = loc
+    		locs_list.append(this_atm)
+        except:
+            dummy=1
 
 	locs = {"result": locs_list}
 	return dict(locs)
+
 
 @app.get('/swagger')
 def swagger():
@@ -226,81 +241,6 @@ def swagger():
         }
     },
     "definitions": {
-        "iss-input": {
-            "title": "ISS Input",
-            "type": "object",
-            "properties": {
-                "message": {
-                    "type": "string"
-                },
-                "request": {
-                    "type": "object",
-                    "properties": {
-                        "altitude": {
-                            "type": "integer"
-                        },
-                        "datetime": {
-                            "type": "integer"
-                        },
-                        "latitude": {
-                            "type": "number"
-                        },
-                        "longitude": {
-                            "type": "number"
-                        },
-                        "passes": {
-                            "type": "integer"
-                        }
-                    }
-                },
-                "response": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "duration": {
-                                "type": "integer"
-                            },
-                            "risetime": {
-                                "type": "integer"
-                            }
-                        }
-                    }
-                }
-            },
-            "example": {
-                "message": "success",
-                "request": {
-                    "altitude": 100,
-                    "datetime": 1503729363,
-                    "latitude": 1.29027,
-                    "longitude": 103.851959,
-                    "passes": 5
-                },
-                "response": [
-                    {
-                        "duration": 191,
-                        "risetime": 1503735367
-                    },
-                    {
-                        "duration": 635,
-                        "risetime": 1503740930
-                    },
-                    {
-                        "duration": 181,
-                        "risetime": 1503746939
-                    },
-                    {
-                        "duration": 627,
-                        "risetime": 1503782602
-                    },
-                    {
-                        "duration": 438,
-                        "risetime": 1503788476
-                    }
-                ]
-            }
-        },
         "atm-location-input": {
             "title": "ATM Location Input",
             "type": "object",
