@@ -1,8 +1,8 @@
-from bottle import Bottle, request
+from bottle import Bottle, request, response, route
 import json
 from random import randint
 from datetime import datetime
-from os import walk, path, makedirs
+from os import walk, path, makedirs, remove
 
 app = Bottle()
 
@@ -11,6 +11,36 @@ db="/tmp/db"
 
 if not path.exists(db):
     makedirs(db)
+
+
+@app.error(404)
+def error404(error):
+    return "Nothing here, sorry :("
+
+# READ
+@app.route('/atm/locations/<id:int>', method='GET')
+def get_atm(id):
+
+    try:
+        with open(db + "/" + str(id), mode='rb') as file_handle:
+            file_content = file_handle.read()
+        file_handle.close()
+    except:
+        response.status = 404
+        return dict({"message":"ID not found"})
+
+    this_atm=json.loads(file_content)
+
+    return dict(this_atm)
+
+@app.route('/atm/locations/<id:int>', method='DELETE')
+def del_atm(id):
+    try:
+        remove(db + "/" + str(id))
+        return "OK" + str(id)
+    except:
+        response.status = 404
+        return dict({"message":"ID not found"})
 
 @app.get('/atm/locations')
 def get_all_atm():
