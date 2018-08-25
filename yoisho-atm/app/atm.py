@@ -3,6 +3,7 @@ import json
 from random import randint
 from datetime import datetime
 from os import walk, path, makedirs, remove
+import io
 
 app = Bottle()
 
@@ -18,11 +19,11 @@ def error404(error):
     return "Nothing here, sorry :("
 
 # READ
-@app.route('/atm/locations/<id:int>', method='GET')
+@app.route('/api/atm/<id:int>', method='GET')
 def get_atm(id):
 
     try:
-        with open(db + "/" + str(id), mode='rb') as file_handle:
+        with io.open(db + "/" + str(id), mode='r', encoding='utf-8') as file_handle:
             file_content = file_handle.read()
         file_handle.close()
     except:
@@ -33,50 +34,71 @@ def get_atm(id):
 
     return dict(this_atm)
 
-@app.route('/atm/locations/<id:int>', method='DELETE')
+# CREATE
+@app.route('/api/atm', method='POST')
+def create_atm():
+
+    new_id = str(randint(100,999))
+    stuff=json.load(request.body)
+
+    with io.open(db + "/" + new_id, 'w', encoding="utf-8") as outfile:
+        outfile.write(unicode(json.dumps(stuff, ensure_ascii=False)))
+
+    response.status = 201
+    return dict({"message":"created", "id": new_id})
+
+# UPDATE
+@app.route('/api/atm/<id:int>', method='PUT')
+def create_atm(id):
+
+    stuff=json.load(request.body)
+
+    with io.open(db + "/" + str(id), 'w', encoding="utf-8") as outfile:
+        outfile.write(unicode(json.dumps(stuff, ensure_ascii=False)))
+
+    response.status = 204
+    return dict({"message":"updated", "id": id})
+
+
+# List all
+@app.get('/api/atm')
+def get_all_atm():
+
+    f = []
+    locs_list= []
+    for (dirpath, dirnames, filenames) in walk(db):
+        f.extend(filenames)
+        break
+
+    for loc in f:
+
+        try:
+            with io.open(db + "/" + loc, mode='r', encoding='utf-8') as file_handle:
+                file_content = file_handle.read()
+            file_handle.close()
+        except:
+            response.status = 404
+            return dict({"message":"ID not found"})
+
+        this_atm=json.loads(file_content)
+        this_atm["id"] = loc
+
+        locs_list.append(this_atm)
+
+    locs = {"result": locs_list}
+    return dict(locs)
+
+@app.route('/api/atm/<id:int>', method='DELETE')
 def del_atm(id):
     try:
         remove(db + "/" + str(id))
-        return "OK" + str(id)
+        response.status = 204
+
+        return dict({"message":" " + str(id) + " deleted"})
+
     except:
         response.status = 404
         return dict({"message":"ID not found"})
-
-@app.route('/atm/locations', method='POST')
-def create_atm():
-
-    f = open(db + "/" + str(randint(100,999)), mode='w+')
-    stuff=json.load(request.body)
-
-    f.write(str(stuff))
-    f.close()
-    response.status = 201
-    return "Created"
-
-@app.get('/atm/locations')
-def get_all_atm():
-
-	f = []
-	locs_list= []
-	for (dirpath, dirnames, filenames) in walk(db):
-	    f.extend(filenames)
-	    break
-
-	for loc in f:
-		with open(db + "/" + loc, mode='rb') as file_handle:
-			file_content = file_handle.read()
-		file_handle.close()
-
-        try:
-    		this_atm=json.loads(file_content)
-
-    		this_atm["id"] = loc
-    		locs_list.append(this_atm)
-        except:
-            dummy=1
-
-	locs = {"result": locs_list}
-	return dict(locs)
 
 
 @app.get('/swagger')
@@ -89,7 +111,7 @@ def swagger():
         "title": "ATM Locations",
         "description": "List of ATM  locations for Yoisho Banking Corporation"
     },
-    "basePath": "/atm",
+    "basePath": "/api",
     "consumes": [
         "application/json"
     ],
@@ -97,7 +119,7 @@ def swagger():
         "application/json"
     ],
     "paths": {
-        "/locations/{id}": {
+        "/atm/{id}": {
             "parameters": [
                 {
                     "name": "id",
@@ -116,7 +138,7 @@ def swagger():
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/atm-location-input"
+                            "$ref": "#/definitions/api-location-input"
                         }
                     }
                 }
@@ -132,7 +154,7 @@ def swagger():
                         "name": "body",
                         "in": "body",
                         "schema": {
-                            "$ref": "#/definitions/atm-location-input"
+                            "$ref": "#/definitions/api-location-input"
                         }
                     }
                 ],
@@ -140,7 +162,7 @@ def swagger():
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/atm-location-input"
+                            "$ref": "#/definitions/api-location-input"
                         }
                     }
                 }
@@ -158,7 +180,7 @@ def swagger():
                 }
             }
         },
-        "/locations": {
+        "/atm": {
             "get": {
                 "operationId": "LIST-atm-locations",
                 "summary": "List Atm locations",
@@ -197,16 +219,14 @@ def swagger():
                             "application/json": {
                                 "data": [
                                     {
-                                        "lat": "111",
-                                        "lon": "09393",
-                                        "location": "somewhere",
-                                        "id": "1"
+                                        "lat": "35.6684231",
+                                        "lon": "139.6833085",
+                                        "location": "Ebisu Station"
                                     },
                                     {
-                                        "lat": "22111",
-                                        "lon": "209393",
-                                        "location": "somewhere else",
-                                        "id": "2"
+                                        "lat": "35.6284713",
+                                        "lon": "139.736571",
+                                        "location": "Shinagawa Station"
                                     }
                                 ]
                             }
@@ -225,7 +245,7 @@ def swagger():
                         "name": "body",
                         "in": "body",
                         "schema": {
-                            "$ref": "#/definitions/atm-location-input"
+                            "$ref": "#/definitions/api-location-input"
                         }
                     }
                 ],
@@ -233,7 +253,7 @@ def swagger():
                     "201": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/atm-location-input"
+                            "$ref": "#/definitions/api-location-input"
                         }
                     }
                 }
