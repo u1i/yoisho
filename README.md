@@ -1,6 +1,6 @@
 # Yoisho Banking Corporation
 
-Webservices and REST APIs that expose bank related data services, you can use them for testing and demos. Run them in containers on your local environment or in any cloud that gives you Docker.
+Webservices and REST APIs that expose bank related data services with dynamic content, you can use them for testing and demos. Run them in containers on your local environment or in any cloud that gives you Docker.
 
 <img src="https://raw.githubusercontent.com/u1i/yoisho/master/resources/yoisho-logo.png" width="250"/>
 
@@ -10,7 +10,7 @@ Available APIs and Webservices:
 * Currency Exchange Rates - REST/JSON, 1 parameter
 * ATM Locator - Full CRUDL REST interface (Create, Read, Update, Delete, List)
 * Stock Quote - REST/JSON, 0 parameters, cached output.
-* Fixed Deposit Calculator - REST/JSON, 2 parameters, complex output
+* Fixed Deposit Calculator - REST/JSON, 2 parameters, semantic error handling, complex output
 * Account Balance - OAuth (3-legged)
 
 # Bank Assets - SOAP/XML
