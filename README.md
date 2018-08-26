@@ -8,6 +8,7 @@ Available APIs and Webservices:
 
 * Bank Assets - SOAP/XML, 2 methods
 * Currency Exchange Rates - REST/JSON, 1 parameter
+* ATM Locator - Full CRUDL REST interface (Create, Read, Update, Delete, List)
 * Stock Quote - REST/JSON, 0 parameters, cached output.
 * Fixed Deposit Calculator - REST/JSON, 2 parameters, complex output
 * Account Balance - OAuth (3-legged)
@@ -50,6 +51,61 @@ This API gives you exchange rates for currencies (USD, GBP and SGD) that the ban
 `curl http://localhost:8080/get_currency?currency=USD`
 
 > {"sell": "489.185", "timestamp": "2017-09-17 02:58:40.194337", "buy": "389.105"}
+
+# ATM Locator - REST/JSON
+
+This API gives you a full CRUDL interface (Create, Read, Update, Delete, List) for ATM locations. In memory database.
+
+### Run the container (choosing port 8080, feel free to modify):
+
+`docker run -d -p 8080:8080 u1ih/yoisho-atm`
+
+### Get the Swagger:
+
+`curl http://localhost:8080/swagger`
+
+> {{ "swagger": "2.0", "info": { "version": "", "title": "ATM Locations", "description": "List of ATM locations for Yoisho Banking Corporation" }, "basePath": "/api", "consumes": [ "application/json" ], "produces": [ "application/json" ], "paths": { "/atm/{id}": { "parameters": [ { "name": "id", "in": "path", "required": true, "type": "string" } ], "get": { "operationId": "GET-atm-location", "summary": "Get ATM Location", "tags": [ "Atm locations" ], "responses": { "200": { "description": "", "schema": { "$ref": "#/definitions/api-location-input" } } } }, "put": { "operationId": "PUT-atm-location", "summary": "Update ATM Location", "tags": [ "Atm locations" ], "parameters": [ { "name": "body", "in": "body", "schema": { "$ref": "#/definitions/api-location-input" } } ], "responses": { "200": { "description": "", "schema": { "$ref": "#/definitions/api-location-input" } } } }, "delete": { "operationId": "DELETE-atm-location", "summary": "Delete ATM Location", "tags": [ "Atm locations" ], "responses": { "204": { "description": "" } } } }, "/atm": { "get": { "operationId": "LIST-atm-locations", "summary": "List Atm locations", "tags": [ "Atm locations" ], "responses": { "200": { "description": "", "schema": { "type": "object", "properties": { "result": { "type": "array", "items": { "type": "object", "properties": { "lat": { "type": "string" }, "lon": { "type": "string" }, "location": { "type": "string" }, "id": { "type": "string" } } } } } }, "examples": { "application/json": { "data": [ { "lat": "35.6684231", "lon": "139.6833085", "location": "Ebisu Station" }, { "lat": "35.6284713", "lon": "139.736571", "location": "Shinagawa Station" } ] } } } } }, "post": { "operationId": "POST-atm-location", "summary": "Create ATM Location", "tags": [ "Atm locations" ], "parameters": [ { "name": "body", "in": "body", "schema": { "$ref": "#/definitions/api-location-input" } } ], "responses": { "201": { "description": "", "schema": { "$ref": "#/definitions/api-location-input" } } } } } }, "definitions": { "atm-location-input": { "title": "ATM Location Input", "type": "object", "properties": { "location": { "type": "string" }, "lat": { "type": "string" }, "lon": { "type": "string" } }, "required": [ "location" ] } } }
+
+### Get an ATM Location
+
+The entries with id 1 and 2 are prepopulated when the container starts:
+
+`curl http://localhost:8080/api/atm/1`
+
+> {"lat": "35.6284713", "lon": "139.736571", "location": "Shinagawa Station"}
+
+`curl http://localhost:8080/api/atm/2`
+
+> {"lat": "35.6684231", "lon": "139.6833085", "location": "Ebisu Station"}
+
+### Create an ATM
+
+`curl -X POST http://localhost:8080/api/atm -d "{\"lat\": \"${RANDOM}${RANDOM}\", \"lon\": \"${RANDOM}${RANDOM}\", \"location\" \"some place\"}"`
+
+> {"message": "created", "id": "565"}
+
+### Delete an ATM
+
+`curl -X DELETE http://localhost:8080/api/atm/565`
+
+> {"message": " 565 deleted"}
+
+### Update an ATM
+
+`curl -X PUT http://localhost:8080/api/atm/105 -d '{"lat": "123", "lon": "982", "location": "some place"}'`
+
+> {"message": "updated", "id": 105}
+
+### Get all ATM's
+
+`curl http://localhost:8080/api/atm`
+
+> {"result": [{"lat": "35.6684231", "lon": "139.6833085", "location": "Ebisu Station", "id": "2"}, {"lat": "35.6284713", "lon": "139.736571", "location": "Shinagawa Station", "id": "1"}]}
+
+
+
+
+
 
 # Stock Quote - REST/JSON
 

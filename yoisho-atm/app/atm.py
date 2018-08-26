@@ -8,14 +8,25 @@ import io
 app = Bottle()
 
 # Find out whether we can use the ram disk, otherwise /tmp
-
 if path.exists("/dev/shm"):
     db="/dev/shm/db"
 else:
     db="/tmp/db"
 
+# Initialize database
 if not path.exists(db):
     makedirs(db)
+
+    rec1 = {"lat": "35.6284713", "lon": "139.736571", "location": "Shinagawa Station"}
+    rec2 = {"lat": "35.6684231", "lon": "139.6833085", "location": "Ebisu Station"}
+
+    with io.open(db + "/1", 'w', encoding="utf-8") as outfile:
+        outfile.write(unicode(json.dumps(rec1, ensure_ascii=False)))
+    outfile.close()
+
+    with io.open(db + "/2", 'w', encoding="utf-8") as outfile:
+        outfile.write(unicode(json.dumps(rec2, ensure_ascii=False)))
+    outfile.close()
 
 @app.error(404)
 def error404(error):
@@ -24,12 +35,6 @@ def error404(error):
 # READ
 @app.route('/api/atm/<id:int>', method='GET')
 def get_atm(id):
-
-    if int(id) == 1:
-        return dict({"lat": "35.6284713", "lon": "139.736571", "location": "Shinagawa Station"})
-
-    if int(id) == 2:
-        return dict({"lat": "35.6684231", "lon": "139.6833085", "location": "Ebisu Station"})
 
     try:
         with io.open(db + "/" + str(id), mode='r', encoding='utf-8') as file_handle:
@@ -52,6 +57,7 @@ def create_atm():
 
     with io.open(db + "/" + new_id, 'w', encoding="utf-8") as outfile:
         outfile.write(unicode(json.dumps(stuff, ensure_ascii=False)))
+    outfile.close()
 
     response.status = 201
     return dict({"message":"created", "id": new_id})
@@ -64,6 +70,7 @@ def create_atm(id):
 
     with io.open(db + "/" + str(id), 'w', encoding="utf-8") as outfile:
         outfile.write(unicode(json.dumps(stuff, ensure_ascii=False)))
+    outfile.close()
 
     response.status = 200
     return dict({"message":"updated", "id": id})
@@ -104,7 +111,7 @@ def del_atm(id):
         remove(db + "/" + str(id))
         response.status = 200
 
-        return dict({"message":" " + str(id) + " deleted"})
+        return dict({"message":"" + str(id) + " deleted"})
 
     except:
         response.status = 404
