@@ -7,12 +7,15 @@ import io
 
 app = Bottle()
 
-#db="/dev/shm/db"
-db="/tmp/db"
+# Find out whether we can use the ram disk, otherwise /tmp
+
+if path.exists("/dev/shm"):
+    db="/dev/shm/db"
+else:
+    db="/tmp/db"
 
 if not path.exists(db):
     makedirs(db)
-
 
 @app.error(404)
 def error404(error):
@@ -21,6 +24,12 @@ def error404(error):
 # READ
 @app.route('/api/atm/<id:int>', method='GET')
 def get_atm(id):
+
+    if int(id) == 1:
+        return dict({"lat": "35.6284713", "lon": "139.736571", "location": "Shinagawa Station"})
+
+    if int(id) == 2:
+        return dict({"lat": "35.6684231", "lon": "139.6833085", "location": "Ebisu Station"})
 
     try:
         with io.open(db + "/" + str(id), mode='r', encoding='utf-8') as file_handle:
@@ -56,11 +65,11 @@ def create_atm(id):
     with io.open(db + "/" + str(id), 'w', encoding="utf-8") as outfile:
         outfile.write(unicode(json.dumps(stuff, ensure_ascii=False)))
 
-    response.status = 204
+    response.status = 200
     return dict({"message":"updated", "id": id})
 
 
-# List all
+# LIST
 @app.get('/api/atm')
 def get_all_atm():
 
@@ -88,11 +97,12 @@ def get_all_atm():
     locs = {"result": locs_list}
     return dict(locs)
 
+# DELETE
 @app.route('/api/atm/<id:int>', method='DELETE')
 def del_atm(id):
     try:
         remove(db + "/" + str(id))
-        response.status = 204
+        response.status = 200
 
         return dict({"message":" " + str(id) + " deleted"})
 
