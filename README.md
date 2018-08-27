@@ -80,7 +80,7 @@ The entries with id 1 and 2 are prepopulated when the container starts:
 
 ### Create an ATM
 
-`curl -X POST http://localhost:8080/api/atm -d "{\"lat\": \"${RANDOM}${RANDOM}\", \"lon\": \"${RANDOM}${RANDOM}\", \"location\" \"some place\"}"`
+`curl -X POST http://localhost:8192/api/atm -d '{ "lat": "35.4657858", "lon": "139.6201245,17", "location": "Yokohama Station" }'"`
 
 > {"message": "created", "id": "565"}
 
