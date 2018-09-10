@@ -13,6 +13,8 @@ Available APIs and Webservices:
 * Fixed Deposit Calculator - REST/JSON, 2 parameters, semantic error handling, complex output
 * Account Balance - OAuth (3-legged)
 
+Looking for a quick way to deploy? [Docker Compose](docker-compose.yml) | [Chef Cookbook](chef-cookbook)
+
 # Bank Assets - SOAP/XML
 
 A webservice that gives you total assets and debt of the bank. Each request will produce a slightly different result - it's a busy bank so cash is flowing in & out constantly!

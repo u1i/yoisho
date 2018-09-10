@@ -1,0 +1,29 @@
+assets:
+    image: u1ih/yoisho-assets:latest
+    ports:
+        - "8081:80"
+
+currency:
+    image: u1ih/yoisho-currency:latest
+    ports:
+        - "8082:8080"
+
+atm:
+    image: u1ih/yoisho-atm:latest
+    ports:
+        - "8083:8080"
+
+stockquote:
+    image: u1ih/yoisho-stockquote:latest
+    ports:
+        - "8084:8080"
+
+deposit:
+    image: u1ih/yoisho-deposit:latest
+    ports:
+        - "8085:8080"
+
+account:
+    image: u1ih/yoisho-account:latest
+    ports:
+        - "8086:8080"
