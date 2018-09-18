@@ -8,10 +8,12 @@ Available APIs and Webservices:
 
 * Bank Assets - SOAP/XML, 2 methods
 * Currency Exchange Rates - REST/JSON, 1 parameter
-* ATM Locator - Full CRUDL REST interface (Create, Read, Update, Delete, List)
 * Stock Quote - REST/JSON, 0 parameters, cached output.
 * Fixed Deposit Calculator - REST/JSON, 2 parameters, semantic error handling, complex output
 * Account Balance - OAuth (3-legged)
+* ATM Locator - Full CRUDL REST interface (Create, Read, Update, Delete, List)
+* Credit Card Balance - Full CRUDL REST interface (Create, Read, Update, Delete, List)
+* Short Loan Product - Full CRUDL REST interface (Create, Read, Update, Delete, List)
 
 Looking for a quick way to deploy? [Docker Compose](docker-compose.yml) | [Chef Cookbook](chef-cookbook)
 
@@ -105,9 +107,12 @@ The entries with id 1 and 2 are prepopulated when the container starts:
 > {"result": [{"lat": "35.6684231", "lon": "139.6833085", "location": "Ebisu Station", "id": "2"}, {"lat": "35.6284713", "lon": "139.736571", "location": "Shinagawa Station", "id": "1"}]}
 
 
+# Credit Card Balance and Loan Products
 
+The API behaves identically to the ATM locator, just the docker images are different:
 
-
+* [Credit Card Balance](https://hub.docker.com/r/u1ih/yoisho-creditcard/)
+* [Loan Products](https://hub.docker.com/r/u1ih/yoisho-loan/)
 
 # Stock Quote - REST/JSON
 
