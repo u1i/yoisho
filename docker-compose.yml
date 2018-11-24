@@ -27,3 +27,13 @@ account:
     image: u1ih/yoisho-account:latest
     ports:
         - "8086:8080"
+
+creditcard:
+    image: u1ih/yoisho-creditcard:latest
+    ports:
+        - "8087:8080"
+
+loan:
+    image: u1ih/yoisho-loan:latest
+    ports:
+        - "8088:8080"
