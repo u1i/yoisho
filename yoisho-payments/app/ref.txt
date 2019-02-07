@@ -3,3 +3,5 @@ https://github.com/sangria-graphql/sangria-akka-http-example
 https://graphql.org/learn/serving-over-http/
 
 https://docs.mollie.com/reference/v2/payments-api/get-payment
+
+https://graphql.github.io/learn/queries/
