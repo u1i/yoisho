@@ -1,0 +1,5 @@
+https://github.com/sangria-graphql/sangria-akka-http-example
+
+https://graphql.org/learn/serving-over-http/
+
+
