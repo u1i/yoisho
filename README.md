@@ -10,6 +10,7 @@ Available APIs and Webservices:
 
 * Bank Assets - SOAP/XML, 2 methods
 * Currency Exchange Rates - REST/JSON, 1 parameter
+* Payments - GraphQL (currently in development)
 * Stock Quote - REST/JSON, 0 parameters, cached output.
 * Fixed Deposit Calculator - REST/JSON, 2 parameters, semantic error handling, complex output
 * Account Balance - OAuth (3-legged)
