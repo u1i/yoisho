@@ -1,0 +1,81 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "",
+        "title": "Investments",
+        "description": "Provides investment insights of top performing funds"
+    },
+    "basePath": "/v2",
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/investments": {
+            "get": {
+                "operationId": "GET-investments",
+                "summary": "Get Top Performing Funds",
+                "tags": [
+                    "Investments"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/investments"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "investments": {
+            "title": "investments",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "currency": {
+                        "type": "string"
+                    },
+                    "performance_rating": {
+                        "type": "string"
+                    },
+                    "previous_performance_rating": {
+                        "type": "string"
+                    },
+                    "performance": {
+                        "type": "string"
+                    }
+                }
+            },
+            "example": [
+                {
+                    "id": "YB0GB893",
+                    "name": "First Arima Onsen",
+                    "currency": "JPY",
+                    "performance_rating": "1",
+                    "previous_performance_rating": "2",
+                    "performance": "78"
+                },
+                {
+                    "id": "YB0IM691",
+                    "name": "Castle Rock Index Fund",
+                    "currency": "USD",
+                    "performance_rating": "2",
+                    "previous_performance_rating": "3",
+                    "performance": "71"
+                }
+            ]
+        }
+    }
+}

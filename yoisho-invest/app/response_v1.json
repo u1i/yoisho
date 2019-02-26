@@ -1,0 +1,37 @@
+[
+    {
+        "id": "YB0GB893",
+        "name": "First Arima Onsen",
+        "currency": "JPY",
+        "performance_rating": "1",
+        "performance": "78"
+    },
+    {
+        "id": "YB0IM691",
+        "name": "Castle Rock Index Fund",
+        "currency": "USD",
+        "performance_rating": "2",
+        "performance": "71"
+    },
+    {
+        "id": "YB0SD611",
+        "name": "Odee Hangzhou BC",
+        "currency": "RMB",
+        "performance_rating": "2",
+        "performance": "69"
+    },
+    {
+        "id": "YB0AA223",
+        "name": "Sedona 500",
+        "currency": "USD",
+        "performance_rating": "3",
+        "performance": "56"
+    },
+    {
+        "id": "YB0DE781",
+        "name": "Munich WB2",
+        "currency": "EUR",
+        "performance_rating": "4",
+        "performance": "51"
+    }
+]
