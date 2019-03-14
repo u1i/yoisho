@@ -44,11 +44,11 @@ A webservice that gives you total assets and debt of the bank. Each request will
 
 This API gives you exchange rates for currencies (USD, GBP and SGD) that the bank buys and sells. Each time you ask for a quote the amounts might be slighly different - they're really busy adjusting the rates constantly!
 
-### Run the container (choosing port 8080, feel free to modify):
+### Run the container (choosing port 8080, feel free to modify)
 
 `docker run -d -p 8080:8080 u1ih/yoisho-currency`
 
-### Get the Swagger:
+### Get the Swagger
 
 `curl http://localhost:8080/swagger`
 
@@ -59,6 +59,24 @@ This API gives you exchange rates for currencies (USD, GBP and SGD) that the ban
 `curl http://localhost:8080/get_currency?currency=USD`
 
 > {"sell": "489.185", "timestamp": "2017-09-17 02:58:40.194337", "buy": "389.105"}
+
+### Improvements - Learning Journey
+
+When playing with the endpoint, you'll observe a couple of things:
+
+* if you're not adding ?currency= to the request, you'll get a nasty 500 error. Of course, this should be handled by the backend properly, but it also helps highlight the contractual aspects of Swagger and the need for API Managament to only pass on API requests to the backend if it has verified its integrity
+* from an API design perspective, the development team could realize that there's two things that should change: (1) we need an API base path and (2) get_currency is not exactly a good name for a resource in order to be swagger compliant and align with API design best practices
+
+### Get the Swagger - with base path and proper resource object
+
+`curl http://localhost:8080/fx/swagger`
+
+### Get exchange rates (with base path)
+
+`curl http://localhost:8080/fx/currency?currency=USD`
+
+> {"sell": "489.185", "timestamp": "2017-09-17 02:58:40.194337", "buy": "389.105"}
+
 
 # ATM Locator - REST/JSON
 
