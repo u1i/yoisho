@@ -5,6 +5,7 @@ from datetime import datetime
 
 app = Bottle()
 
+@app.get('/fx/currency')
 @app.get('/get_currency')
 def get_currency():
 
@@ -41,3 +42,10 @@ def swagger():
 
 	return swagger
 
+
+@app.get('/fx/swagger')
+def swagger():
+
+	swagger = '''{   "swagger" : "2.0",   "host" : "",   "basePath" : "/fx",   "schemes" : [ "http" ],   "paths" : {     "/currency" : {       "get" : {         "description" : "",         "operationId" : "get_currency",         "produces" : [ "application/json" ],         "parameters" : [ {           "description" : "The desired currency",           "required" : true,           "in" : "query",           "name" : "currency",           "type" : "string"         } ],         "responses" : {           "default" : {             "description" : "successful operation"           }         }       }     }   },   "info" : {     "title" : "Yoisho Currency Exchange",     "description" : "",     "version" : "1.0"   },   "x-axway" : {     "corsEnabled" : true,     "basePaths" : [ "" ],     "serviceType" : "rest",     "deprecated" : false,     "tags" : { }   } }'''
+
+	return swagger
