@@ -13,18 +13,18 @@
         "application/json"
     ],
     "paths": {
-        "/investments": {
+        "/products": {
             "get": {
-                "operationId": "GET-investments",
+                "operationId": "GET-products",
                 "summary": "Get Top Performing Funds",
                 "tags": [
-                    "Investments"
+                    "Products"
                 ],
                 "responses": {
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/investments"
+                            "$ref": "#/definitions/products"
                         }
                     }
                 }
@@ -32,8 +32,8 @@
         }
     },
     "definitions": {
-        "investments": {
-            "title": "investments",
+        "products": {
+            "title": "products",
             "type": "array",
             "items": {
                 "type": "object",

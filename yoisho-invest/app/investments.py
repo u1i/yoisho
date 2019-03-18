@@ -7,7 +7,11 @@ app = Bottle()
 
 filepath="/app"
 
-@app.get('/v1/investments')
+@app.route("/")
+def get_home():
+    return dict({"info" : "Investments API. Swagger at /invest/v1/swagger and /invest/v2/swagger"})
+
+@app.get('/invest/v1/products')
 def get_i1():
 	with open(filepath + "/response_v1.json", mode='r') as file_handle:
 		file_content = file_handle.read()
@@ -16,7 +20,7 @@ def get_i1():
 	response.content_type = 'application/json'
 	return(json.dumps(d1))
 
-@app.get('/v2/investments')
+@app.get('/invest/v2/products')
 def get_i1():
 	with open(filepath + "/response_v2.json", mode='r') as file_handle:
 		file_content = file_handle.read()
@@ -25,7 +29,7 @@ def get_i1():
 	response.content_type = 'application/json'
 	return(json.dumps(d1))
 
-@app.get('/v1/swagger')
+@app.get('/invest/v1/swagger')
 def get_swagger():
         with open(filepath + "/swagger_v1.json", mode='r') as file_handle:
                 file_content = file_handle.read()
@@ -33,7 +37,7 @@ def get_swagger():
         sw = json.loads(file_content)
         return(dict(sw))
 
-@app.get('/v2/swagger')
+@app.get('/invest/v2/swagger')
 def get_swagger():
         with open(filepath + "/swagger_v2.json", mode='r') as file_handle:
                 file_content = file_handle.read()
