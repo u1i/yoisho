@@ -136,7 +136,7 @@ The entries with id 1 and 2 are prepopulated when the container starts:
 
 # Credit Card Balance
 
-This APIs works just like v2 of to the ATM locator, documentation will come soon:
+This APIs works just like v2 of to the ATM locator.
 
 ### Run the container
 
