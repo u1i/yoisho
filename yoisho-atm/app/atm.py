@@ -32,6 +32,10 @@ if not path.exists(db):
 def error404(error):
     return "Nothing here, sorry :("
 
+@app.route("/")
+def get_home():
+    return dict({"info" : "Banking ATM API. Swagger at /banking/v1/swagger and /banking/v2/swagger"})
+
 # READ
 @app.route('/banking/v1/atm/<id:int>', method='GET')
 @app.route('/banking/v2/atm/<id:int>', method='GET')
