@@ -146,8 +146,6 @@ This APIs works just like v2 of to the ATM locator.
 
 `curl http://localhost:8080/cardservices/swagger`
 
-* [Credit Card Balance](https://hub.docker.com/r/u1ih/yoisho-creditcard/)
-
 # Loan Products
 
 * [Loan Products](https://hub.docker.com/r/u1ih/yoisho-loan/)
