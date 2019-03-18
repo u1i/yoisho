@@ -33,7 +33,8 @@ def error404(error):
     return "Nothing here, sorry :("
 
 # READ
-@app.route('/api/atm/<id:int>', method='GET')
+@app.route('/banking/v1/atm/<id:int>', method='GET')
+@app.route('/banking/v2/atm/<id:int>', method='GET')
 def get_atm(id):
 
     try:
@@ -49,7 +50,8 @@ def get_atm(id):
     return dict(this_atm)
 
 # CREATE
-@app.route('/api/atm', method='POST')
+@app.route('/banking/v1/atm', method='POST')
+@app.route('/banking/v2/atm', method='POST')
 def create_atm():
 
     new_id = str(randint(100,999))
@@ -63,7 +65,8 @@ def create_atm():
     return dict({"message":"created", "id": new_id})
 
 # UPDATE
-@app.route('/api/atm/<id:int>', method='PUT')
+@app.route('/banking/v1/atm/<id:int>', method='PUT')
+@app.route('/banking/v2/atm/<id:int>', method='PUT')
 def create_atm(id):
 
     stuff=json.load(request.body)
@@ -75,9 +78,8 @@ def create_atm(id):
     response.status = 200
     return dict({"message":"updated", "id": id})
 
-
 # LIST
-@app.get('/api/atm')
+@app.get('/banking/v2/atm')
 def get_all_atm():
 
     f = []
@@ -105,7 +107,7 @@ def get_all_atm():
     return dict(locs)
 
 # DELETE
-@app.route('/api/atm/<id:int>', method='DELETE')
+@app.route('/banking/v2/atm/<id:int>', method='DELETE')
 def del_atm(id):
     try:
         remove(db + "/" + str(id))
@@ -117,8 +119,7 @@ def del_atm(id):
         response.status = 404
         return dict({"message":"ID not found"})
 
-
-@app.get('/swagger')
+@app.get('/banking/v1/swagger')
 def swagger():
 
 	swagger = '''{
@@ -128,7 +129,124 @@ def swagger():
         "title": "ATM Locations",
         "description": "List of ATM  locations for Yoisho Banking Corporation"
     },
-    "basePath": "/api",
+    "basePath": "/banking/v1",
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/atm/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "operationId": "GET-atm-location",
+                "summary": "Get ATM Location",
+                "tags": [
+                    "Atm locations"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api-location-input"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "operationId": "PUT-atm-location",
+                "summary": "Update ATM Location",
+                "tags": [
+                    "Atm locations"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/api-location-input"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api-location-input"
+                        }
+                    }
+                }
+            },
+        },
+        "/atm": {
+            "post": {
+                "operationId": "POST-atm-location",
+                "summary": "Create ATM Location",
+                "tags": [
+                    "Atm locations"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/api-location-input"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api-location-input"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "atm-location-input": {
+            "title": "ATM Location Input",
+            "type": "object",
+            "properties": {
+                "location": {
+                    "type": "string"
+                },
+                "lat": {
+                    "type": "string"
+                },
+                "lon": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "location"
+            ]
+        }
+    }
+}'''
+	return swagger
+
+@app.get('/banking/v2/swagger')
+def swagger2():
+
+	swagger = '''{
+    "swagger": "2.0",
+    "info": {
+        "version": "",
+        "title": "ATM Locations",
+        "description": "List of ATM  locations for Yoisho Banking Corporation"
+    },
+    "basePath": "/banking/v2",
     "consumes": [
         "application/json"
     ],

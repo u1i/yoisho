@@ -80,7 +80,12 @@ When playing with the endpoint, you'll observe a couple of things:
 
 # ATM Locator - REST/JSON
 
-This API gives you a full CRUDL interface (Create, Read, Update, Delete, List) for ATM locations. In memory database.
+This API gives you a full CRUDL interface (Create, Read, Update, Delete, List) for ATM locations, using an in memory database.
+
+Two versions:
+
+* /banking/v1 offers CREATE, READ, UPDATE
+* /banking/v2 offers CREATE, READ, UPDATE, DELETE, LIST ALL
 
 ### Run the container (choosing port 8080, feel free to modify):
 
@@ -88,50 +93,50 @@ This API gives you a full CRUDL interface (Create, Read, Update, Delete, List) f
 
 ### Get the Swagger:
 
-`curl http://localhost:8080/swagger`
+`curl http://localhost:8080/banking/v2/swagger`
 
-> { "swagger": "2.0", "info": { "version": "", "title": "ATM Locations", "description": "List of ATM locations for Yoisho Banking Corporation" }, "basePath": "/api", "consumes": [ "application/json" ], "produces": [ "application/json" ], "paths": { "/atm/{id}": { "parameters": [ { "name": "id", "in": "path", "required": true, "type": "string" } ], "get": { "operationId": "GET-atm-location", "summary": "Get ATM Location", "tags": [ "Atm locations" ], "responses": { "200": { "description": "", "schema": { "$ref": "#/definitions/api-location-input" } } } }, "put": { "operationId": "PUT-atm-location", "summary": "Update ATM Location", "tags": [ "Atm locations" ], "parameters": [ { "name": "body", "in": "body", "schema": { "$ref": "#/definitions/api-location-input" } } ], "responses": { "200": { "description": "", "schema": { "$ref": "#/definitions/api-location-input" } } } }, "delete": { "operationId": "DELETE-atm-location", "summary": "Delete ATM Location", "tags": [ "Atm locations" ], "responses": { "204": { "description": "" } } } }, "/atm": { "get": { "operationId": "LIST-atm-locations", "summary": "List Atm locations", "tags": [ "Atm locations" ], "responses": { "200": { "description": "", "schema": { "type": "object", "properties": { "result": { "type": "array", "items": { "type": "object", "properties": { "lat": { "type": "string" }, "lon": { "type": "string" }, "location": { "type": "string" }, "id": { "type": "string" } } } } } }, "examples": { "application/json": { "data": [ { "lat": "35.6684231", "lon": "139.6833085", "location": "Ebisu Station" }, { "lat": "35.6284713", "lon": "139.736571", "location": "Shinagawa Station" } ] } } } } }, "post": { "operationId": "POST-atm-location", "summary": "Create ATM Location", "tags": [ "Atm locations" ], "parameters": [ { "name": "body", "in": "body", "schema": { "$ref": "#/definitions/api-location-input" } } ], "responses": { "201": { "description": "", "schema": { "$ref": "#/definitions/api-location-input" } } } } } }, "definitions": { "atm-location-input": { "title": "ATM Location Input", "type": "object", "properties": { "location": { "type": "string" }, "lat": { "type": "string" }, "lon": { "type": "string" } }, "required": [ "location" ] } }
+> { "swagger": "2.0", "info": { "version": "", "title": "ATM Locations", "description": "List of ATM locations for Yoisho Banking Corporation" }, "basePath": "/banking/v2", "consumes": [ "application/json" ], "produces": [ "application/json" ], "paths": { "/atm/{id}": { "parameters": [ { "name": "id", "in": "path", "required": true, "type": "string" } ], "get": { "operationId": "GET-atm-location", "summary": "Get ATM Location", "tags": [ "Atm locations" ], "responses": { "200": { "description": "", "schema": { "$ref": "#/definitions/api-location-input" } } } }, "put": { "operationId": "PUT-atm-location", "summary": "Update ATM Location", "tags": [ "Atm locations" ], "parameters": [ { "name": "body", "in": "body", "schema": { "$ref": "#/definitions/api-location-input" } } ], "responses": { "200": { "description": "", "schema": { "$ref": "#/definitions/api-location-input" } } } }, "delete": { "operationId": "DELETE-atm-location", "summary": "Delete ATM Location", "tags": [ "Atm locations" ], "responses": { "204": { "description": "" } } } }, "/atm": { "get": { "operationId": "LIST-atm-locations", "summary": "List Atm locations", "tags": [ "Atm locations" ], "responses": { "200": { "description": "", "schema": { "type": "object", "properties": { "result": { "type": "array", "items": { "type": "object", "properties": { "lat": { "type": "string" }, "lon": { "type": "string" }, "location": { "type": "string" }, "id": { "type": "string" } } } } } }, "examples": { "application/json": { "data": [ { "lat": "35.6684231", "lon": "139.6833085", "location": "Ebisu Station" }, { "lat": "35.6284713", "lon": "139.736571", "location": "Shinagawa Station" } ] } } } } }, "post": { "operationId": "POST-atm-location", "summary": "Create ATM Location", "tags": [ "Atm locations" ], "parameters": [ { "name": "body", "in": "body", "schema": { "$ref": "#/definitions/api-location-input" } } ], "responses": { "201": { "description": "", "schema": { "$ref": "#/definitions/api-location-input" } } } } } }, "definitions": { "atm-location-input": { "title": "ATM Location Input", "type": "object", "properties": { "location": { "type": "string" }, "lat": { "type": "string" }, "lon": { "type": "string" } }, "required": [ "location" ] } }
 
 ### Get an ATM Location
 
 The entries with id 1 and 2 are prepopulated when the container starts:
 
-`curl http://localhost:8080/api/atm/1`
+`curl http://localhost:8080/banking/v2/atm/1`
 
 > {"lat": "35.6284713", "lon": "139.736571", "location": "Shinagawa Station"}
 
-`curl http://localhost:8080/api/atm/2`
+`curl http://localhost:8080/banking/v2/atm/2`
 
 > {"lat": "35.6684231", "lon": "139.6833085", "location": "Ebisu Station"}
 
 ### Create an ATM
 
-`curl -X POST http://localhost:8192/api/atm -d '{ "lat": "35.4657858", "lon": "139.6201245,17", "location": "Yokohama Station" }'"`
+`curl -X POST http://localhost:8192/banking/v2/atm -d '{ "lat": "35.4657858", "lon": "139.6201245,17", "location": "Yokohama Station" }'"`
 
 > {"message": "created", "id": "565"}
 
 ### Delete an ATM
 
-`curl -X DELETE http://localhost:8080/api/atm/565`
+`curl -X DELETE http://localhost:8080/banking/v2/atm/565`
 
 > {"message": " 565 deleted"}
 
 ### Update an ATM
 
-`curl -X PUT http://localhost:8080/api/atm/105 -d '{"lat": "123", "lon": "982", "location": "some place"}'`
+`curl -X PUT http://localhost:8080/banking/v2/atm/105 -d '{"lat": "123", "lon": "982", "location": "some place"}'`
 
 > {"message": "updated", "id": 105}
 
 ### Get all ATM's
 
-`curl http://localhost:8080/api/atm`
+`curl http://localhost:8080/banking/v2/atm`
 
 > {"result": [{"lat": "35.6684231", "lon": "139.6833085", "location": "Ebisu Station", "id": "2"}, {"lat": "35.6284713", "lon": "139.736571", "location": "Shinagawa Station", "id": "1"}]}
 
 
 # Credit Card Balance and Loan Products
 
-The API behaves identically to the ATM locator, just the docker images are different:
+The APIs behave similarly to the ATM locator, documentation will come soon:
 
 * [Credit Card Balance](https://hub.docker.com/r/u1ih/yoisho-creditcard/)
 * [Loan Products](https://hub.docker.com/r/u1ih/yoisho-loan/)
