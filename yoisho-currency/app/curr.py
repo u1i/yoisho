@@ -5,6 +5,10 @@ from datetime import datetime
 
 app = Bottle()
 
+@app.route("/")
+def get_home():
+    return dict({"info" : "Currency Exchange API. Swagger at /fx/swagger"})
+
 @app.get('/fx/currency')
 @app.get('/get_currency')
 def get_currency():
