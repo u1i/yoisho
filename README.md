@@ -87,11 +87,11 @@ Two versions:
 * /banking/v1 offers CREATE, READ, UPDATE
 * /banking/v2 offers CREATE, READ, UPDATE, DELETE, LIST ALL
 
-### Run the container (choosing port 8080, feel free to modify):
+### Run the container
 
 `docker run -d -p 8080:8080 u1ih/yoisho-atm`
 
-### Get the Swagger:
+### Get the Swagger
 
 `curl http://localhost:8080/banking/v2/swagger`
 
@@ -134,11 +134,22 @@ The entries with id 1 and 2 are prepopulated when the container starts:
 > {"result": [{"lat": "35.6684231", "lon": "139.6833085", "location": "Ebisu Station", "id": "2"}, {"lat": "35.6284713", "lon": "139.736571", "location": "Shinagawa Station", "id": "1"}]}
 
 
-# Credit Card Balance and Loan Products
+# Credit Card Balance
 
-The APIs behave similarly to the ATM locator, documentation will come soon:
+This APIs works just like v2 of to the ATM locator, documentation will come soon:
+
+### Run the container
+
+`docker run -d -p 8080:8080 u1ih/yoisho-creditcard`
+
+### Get the Swagger
+
+`curl http://localhost:8080/cardservices/swagger`
 
 * [Credit Card Balance](https://hub.docker.com/r/u1ih/yoisho-creditcard/)
+
+# Loan Products
+
 * [Loan Products](https://hub.docker.com/r/u1ih/yoisho-loan/)
 
 # Investments - v1/v2

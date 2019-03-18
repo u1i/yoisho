@@ -32,8 +32,12 @@ if not path.exists(db):
 def error404(error):
     return "Nothing here, sorry :("
 
+@app.route("/")
+def get_home():
+    return dict({"info" : "Credit Card API. Swagger is at /cardservices/swagger"})
+
 # READ
-@app.route('/api/cards/<id:int>', method='GET')
+@app.route('/cardservices/cards/<id:int>', method='GET')
 def get_card(id):
 
     try:
@@ -49,7 +53,7 @@ def get_card(id):
     return dict(this_card)
 
 # CREATE
-@app.route('/api/cards', method='POST')
+@app.route('/cardservices/cards', method='POST')
 def create_card():
 
     new_id = str(randint(100,999))
@@ -63,7 +67,7 @@ def create_card():
     return dict({"message":"created", "id": new_id})
 
 # UPDATE
-@app.route('/api/cards/<id:int>', method='PUT')
+@app.route('/cardservices/cards/<id:int>', method='PUT')
 def create_card(id):
 
     stuff=json.load(request.body)
@@ -77,7 +81,7 @@ def create_card(id):
 
 
 # LIST
-@app.get('/api/cards')
+@app.get('/cardservices/cards')
 def get_all_card():
 
     f = []
@@ -105,7 +109,7 @@ def get_all_card():
     return dict(locs)
 
 # DELETE
-@app.route('/api/cards/<id:int>', method='DELETE')
+@app.route('/cardservices/cards/<id:int>', method='DELETE')
 def del_card(id):
     try:
         remove(db + "/" + str(id))
@@ -118,6 +122,7 @@ def del_card(id):
         return dict({"message":"ID not found"})
 
 
+@app.get('/cardservices/swagger')
 @app.get('/swagger')
 def swagger():
 
@@ -128,7 +133,7 @@ def swagger():
         "title": "Credit Card",
         "description": "Credit card details, balance and last transactions for customers."
     },
-    "basePath": "/api",
+    "basePath": "/cardservices",
     "consumes": [
         "application/json"
     ],
