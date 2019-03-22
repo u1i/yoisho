@@ -126,127 +126,127 @@ def del_atm(id):
 @app.get('/banking/v1/swagger')
 def swagger():
 
-	swagger = '''{
-    "swagger": "2.0",
-    "info": {
-        "version": "",
+	swagger = {
+      "swagger": "2.0",
+      "info": {
+        "version": "1.0",
         "title": "ATM Locations",
-        "description": "List of ATM  locations for Yoisho Banking Corporation"
-    },
-    "basePath": "/banking/v1",
-    "consumes": [
+        "description": "List of ATM locations for Yoisho Banking Corporation"
+      },
+      "basePath": "/banking/v1",
+      "consumes": [
         "application/json"
-    ],
-    "produces": [
+      ],
+      "produces": [
         "application/json"
-    ],
-    "paths": {
+      ],
+      "paths": {
         "/atm/{id}": {
-            "parameters": [
-                {
-                    "name": "id",
-                    "in": "path",
-                    "required": true,
-                    "type": "string"
-                }
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": True,
+              "type": "string"
+            }
+          ],
+          "get": {
+            "operationId": "GET-atm-location",
+            "summary": "Get ATM Location",
+            "tags": [
+              "Atm locations"
             ],
-            "get": {
-                "operationId": "GET-atm-location",
-                "summary": "Get ATM Location",
-                "tags": [
-                    "Atm locations"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/api-location-input"
-                        }
-                    }
+            "responses": {
+              "200": {
+                "description": "",
+                "schema": {
+                  "$ref": "#/definitions/atm-location-input"
                 }
-            },
-            "put": {
-                "operationId": "PUT-atm-location",
-                "summary": "Update ATM Location",
-                "tags": [
-                    "Atm locations"
-                ],
-                "parameters": [
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "schema": {
-                            "$ref": "#/definitions/api-location-input"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/api-location-input"
-                        }
-                    }
+              }
+            }
+          },
+          "put": {
+            "operationId": "PUT-atm-location",
+            "summary": "Update ATM Location",
+            "tags": [
+              "Atm locations"
+            ],
+            "parameters": [
+              {
+                "name": "body",
+                "in": "body",
+                "schema": {
+                  "$ref": "#/definitions/atm-location-input"
                 }
-            },
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "",
+                "schema": {
+                  "$ref": "#/definitions/atm-location-input"
+                }
+              }
+            }
+          }
         },
         "/atm": {
-            "post": {
-                "operationId": "POST-atm-location",
-                "summary": "Create ATM Location",
-                "tags": [
-                    "Atm locations"
-                ],
-                "parameters": [
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "schema": {
-                            "$ref": "#/definitions/api-location-input"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/api-location-input"
-                        }
-                    }
+          "post": {
+            "operationId": "POST-atm-location",
+            "summary": "Create ATM Location",
+            "tags": [
+              "Atm locations"
+            ],
+            "parameters": [
+              {
+                "name": "body",
+                "in": "body",
+                "schema": {
+                  "$ref": "#/definitions/atm-location-input"
                 }
+              }
+            ],
+            "responses": {
+              "201": {
+                "description": "",
+                "schema": {
+                  "$ref": "#/definitions/atm-location-input"
+                }
+              }
             }
+          }
         }
-    },
-    "definitions": {
+      },
+      "definitions": {
         "atm-location-input": {
-            "title": "ATM Location Input",
-            "type": "object",
-            "properties": {
-                "location": {
-                    "type": "string"
-                },
-                "lat": {
-                    "type": "string"
-                },
-                "lon": {
-                    "type": "string"
-                }
+          "title": "ATM Location Input",
+          "type": "object",
+          "properties": {
+            "location": {
+              "type": "string"
             },
-            "required": [
-                "location"
-            ]
+            "lat": {
+              "type": "string"
+            },
+            "lon": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "location"
+          ]
         }
+      }
     }
-}'''
-	return swagger
+	return dict(swagger)
 
 @app.get('/banking/v2/swagger')
 def swagger2():
 
-	swagger = '''{
+	swagger = {
     "swagger": "2.0",
     "info": {
-        "version": "",
+        "version": "2.0",
         "title": "ATM Locations",
         "description": "List of ATM  locations for Yoisho Banking Corporation"
     },
@@ -263,7 +263,7 @@ def swagger2():
                 {
                     "name": "id",
                     "in": "path",
-                    "required": true,
+                    "required": True,
                     "type": "string"
                 }
             ],
@@ -277,7 +277,7 @@ def swagger2():
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/api-location-input"
+                            "$ref": "#/definitions/atm-location-input"
                         }
                     }
                 }
@@ -293,7 +293,7 @@ def swagger2():
                         "name": "body",
                         "in": "body",
                         "schema": {
-                            "$ref": "#/definitions/api-location-input"
+                            "$ref": "#/definitions/atm-location-input"
                         }
                     }
                 ],
@@ -301,7 +301,7 @@ def swagger2():
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/api-location-input"
+                            "$ref": "#/definitions/atm-location-input"
                         }
                     }
                 }
@@ -384,7 +384,7 @@ def swagger2():
                         "name": "body",
                         "in": "body",
                         "schema": {
-                            "$ref": "#/definitions/api-location-input"
+                            "$ref": "#/definitions/atm-location-input"
                         }
                     }
                 ],
@@ -392,7 +392,7 @@ def swagger2():
                     "201": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/api-location-input"
+                            "$ref": "#/definitions/atm-location-input"
                         }
                     }
                 }
@@ -419,5 +419,5 @@ def swagger2():
             ]
         }
     }
-}'''
-	return swagger
+}
+	return dict(swagger)
