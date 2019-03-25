@@ -1,0 +1,6 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:yois="yoisho.total.assets">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <yois:bank_debt/>
+   </soapenv:Body>
+</soapenv:Envelope>

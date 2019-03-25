@@ -1,10 +1,15 @@
-FROM reelio/debian-lxml
-MAINTAINER uli@sotong.io
+FROM alpine
+MAINTAINER uli.hitzel@gmail.com
 
+EXPOSE 8080
+
+RUN apk update
+RUN apk add python2
+RUN apk add py-pip
 RUN mkdir /app
-RUN pip install spyne
+RUN pip install cherrypy bottle
 COPY app /app
 
-CMD ["python","/app/assets.py"]
+CMD ["python","/app/server.py"]
 
 

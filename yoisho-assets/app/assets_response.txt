@@ -1,0 +1,9 @@
+<soap11env:Envelope xmlns:soap11env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="yoisho.total.assets">
+   <soap11env:Body>
+      <tns:bank_assetsResponse>
+         <tns:bank_assetsResult>
+            <tns:string>9941430</tns:string>
+         </tns:bank_assetsResult>
+      </tns:bank_assetsResponse>
+   </soap11env:Body>
+</soap11env:Envelope>
