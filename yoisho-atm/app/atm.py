@@ -51,6 +51,8 @@ def get_atm(id):
 
     this_atm=json.loads(file_content)
 
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS, HEAD'
     return dict(this_atm)
 
 # CREATE
@@ -66,6 +68,8 @@ def create_atm():
     outfile.close()
 
     response.status = 201
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS, HEAD'
     return dict({"message":"created", "id": new_id})
 
 # UPDATE
@@ -80,6 +84,8 @@ def create_atm(id):
     outfile.close()
 
     response.status = 200
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS, HEAD'
     return dict({"message":"updated", "id": id})
 
 # LIST
@@ -108,11 +114,16 @@ def get_all_atm():
         locs_list.append(this_atm)
 
     locs = {"result": locs_list}
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS, HEAD'
     return dict(locs)
 
 # DELETE
 @app.route('/banking/v2/atm/<id:int>', method='DELETE')
 def del_atm(id):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS, HEAD'
+
     try:
         remove(db + "/" + str(id))
         response.status = 200
@@ -125,8 +136,9 @@ def del_atm(id):
 
 @app.get('/banking/v1/swagger')
 def swagger():
-
-	swagger = {
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS, HEAD'
+    swagger = {
       "swagger": "2.0",
       "info": {
         "version": "1.0",
@@ -238,12 +250,13 @@ def swagger():
         }
       }
     }
-	return dict(swagger)
+    return dict(swagger)
 
 @app.get('/banking/v2/swagger')
 def swagger2():
-
-	swagger = {
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS, HEAD'
+    swagger = {
     "swagger": "2.0",
     "info": {
         "version": "2.0",
@@ -420,4 +433,4 @@ def swagger2():
         }
     }
 }
-	return dict(swagger)
+    return dict(swagger)
