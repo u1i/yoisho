@@ -25,11 +25,10 @@ Looking for a quick way to deploy? [Docker Compose](docker-compose.yml) | [Chef 
 
 A webservice that gives you total assets and debt of the bank. Each request will produce a slightly different result - it's a busy bank so cash is flowing in & out constantly!
 
-### Run the container (choosing port 8080, feel free to modify):
+### Run the container (Attention: exposed port has recently changed!)
+`docker run -d -p 8080:8080 u1ih/yoisho-assets`
 
-`docker run -d -p 8080:80 u1ih/yoisho-assets`
-
-### Get the WSDL:
+### Get the WSDL
 
 `curl http://localhost:8080/?WSDL`
 
@@ -44,7 +43,7 @@ A webservice that gives you total assets and debt of the bank. Each request will
 
 This API gives you exchange rates for currencies (USD, GBP and SGD) that the bank buys and sells. Each time you ask for a quote the amounts might be slighly different - they're really busy adjusting the rates constantly!
 
-### Run the container (choosing port 8080, feel free to modify)
+### Run the container
 
 `docker run -d -p 8080:8080 u1ih/yoisho-currency`
 
