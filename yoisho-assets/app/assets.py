@@ -9,6 +9,7 @@ wsdl='''<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:plink="htt
 
 app = Bottle()
 
+@app.route("/", method='GET')
 @app.route("/soap", method='GET')
 def get_wsdl():
     response.content_type = 'text/xml; charset=utf-8'
