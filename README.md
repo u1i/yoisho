@@ -193,9 +193,9 @@ This API returns the stock price of Yoisho Banking Corp. The data updates every 
 
 ### Get the Swagger
 
-`curl http://localhost:8080/swagger`
+`curl http://localhost:8080/stockquote/swagger`
 
-> { "swagger" : "2.0", "host" : "", "basePath" : "", "schemes" : [ "http" ], "paths" : { "/get_quote" : { "get" : { "description" : "", "operationId" : "get_quote", "produces" : [ "application/json" ], "responses" : { "default" : { "description" : "successful operation" } } } } }, "info" : { "title" : "Yoisho Stock Quote", "description" : "", "version" : "1.0" }, "x-axway" : { "corsEnabled" : true, "basePaths" : [ "" ], "serviceType" : "rest", "deprecated" : false, "tags" : { } } }
+> { "swagger" : "2.0", "host" : "", "basePath" : "/stockquote", "schemes" : [ "http" ], "paths" : { "/current" : { "get" : { "description" : "", "operationId" : "get_quote", "produces" : [ "application/json" ], "responses" : { "default" : { "description" : "successful operation" } } } } }, "info" : { "title" : "Yoisho Stock Quote", "description" : "", "version" : "1.0" }, "x-axway" : { "corsEnabled" : true, "basePaths" : [ "" ], "serviceType" : "rest", "deprecated" : false, "tags" : { } } }
 
 ### Get current quote
 

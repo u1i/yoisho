@@ -6,7 +6,7 @@ from datetime import datetime
 app = Bottle()
 
 # allow both paths
-@app.get('/quote/get_quote')
+@app.get('/stockquote/current')
 @app.get('/get_quote')
 def get_quote():
 
@@ -26,5 +26,12 @@ def get_quote():
 def swagger():
 
 	swagger = '''{   "swagger" : "2.0",   "host" : "",   "basePath" : "/quote",   "schemes" : [ "http" ],   "paths" : {     "/get_quote" : {       "get" : {         "description" : "",         "operationId" : "get_quote",         "produces" : [ "application/json" ],           "responses" : {           "default" : {             "description" : "successful operation"           }         }       }     }   },   "info" : {     "title" : "Yoisho Stock Quote",     "description" : "",     "version" : "1.0"   },   "x-axway" : {     "corsEnabled" : true,     "basePaths" : [ "" ],     "serviceType" : "rest",     "deprecated" : false,     "tags" : { }   } }'''
+
+	return swagger
+
+@app.get('/stockquote/swagger')
+def swagger():
+
+	swagger = '''{   "swagger" : "2.0",   "host" : "",   "basePath" : "/stockquote",   "schemes" : [ "http" ],   "paths" : {     "/current" : {       "get" : {         "description" : "Get current stock price",         "operationId" : "get_quote",         "produces" : [ "application/json" ],           "responses" : {           "default" : {             "description" : "successful operation"           }         }       }     }   },   "info" : {     "title" : "Yoisho Stock Quote",     "description" : "",     "version" : "1.0"   },   "x-axway" : {     "corsEnabled" : true,     "basePaths" : [ "" ],     "serviceType" : "rest",     "deprecated" : false,     "tags" : { }   } }'''
 
 	return swagger
