@@ -3,4 +3,3 @@ include/
 lib/
 .Python
 pip-selfcheck.json
-shared/
