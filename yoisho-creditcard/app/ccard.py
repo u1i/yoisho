@@ -49,6 +49,8 @@ def get_card(id):
         return dict({"message":"ID not found"})
 
     this_card=json.loads(file_content)
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS, HEAD'
 
     return dict(this_card)
 
@@ -62,6 +64,8 @@ def create_card():
     with io.open(db + "/" + new_id, 'w', encoding="utf-8") as outfile:
         outfile.write(unicode(json.dumps(stuff, ensure_ascii=False)))
     outfile.close()
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS, HEAD'
 
     response.status = 201
     return dict({"message":"created", "id": new_id})
@@ -75,6 +79,8 @@ def create_card(id):
     with io.open(db + "/" + str(id), 'w', encoding="utf-8") as outfile:
         outfile.write(unicode(json.dumps(stuff, ensure_ascii=False)))
     outfile.close()
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS, HEAD'
 
     response.status = 200
     return dict({"message":"updated", "id": id})
@@ -104,6 +110,8 @@ def get_all_card():
         this_card["id"] = loc
 
         locs_list.append(this_card)
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS, HEAD'
 
     locs = {"result": locs_list}
     return dict(locs)
@@ -126,7 +134,7 @@ def del_card(id):
 @app.get('/swagger')
 def swagger():
 
-	swagger = '''{
+    swagger = {
     "swagger": "2.0",
     "info": {
         "version": "",
@@ -146,7 +154,7 @@ def swagger():
                 {
                     "name": "id",
                     "in": "path",
-                    "required": true,
+                    "required": True,
                     "type": "string"
                 }
             ],
@@ -283,5 +291,7 @@ def swagger():
             }
         }
     }
-}'''
-	return swagger
+}
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS, HEAD'
+    return dict(swagger)
