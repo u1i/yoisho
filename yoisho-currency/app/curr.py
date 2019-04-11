@@ -48,7 +48,7 @@ def swagger():
 
     return swagger
 
-
+@app.get('/swagger.json')
 @app.get('/fx/swagger')
 def swagger():
 
