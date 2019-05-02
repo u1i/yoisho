@@ -38,13 +38,16 @@ def depositcalc():
 
     robj["yield_amount"] = '{:0,.2f}'.format(amount)
     robj["yield_breakdown_by_year"] = yal
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS, HEAD'
 
     return dict(robj)
 
 @app.get('/swagger')
+@app.get('/swagger.json')
 def swagger():
 
-	swagger = '''{
+    swagger = '''{
 	  "swagger" : "2.0",
 	  "host" : "",
 	  "basePath" : "/fixeddeposit",
@@ -85,5 +88,7 @@ def swagger():
 	    "version" : "1.0"
 	  }
 	}'''
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS, HEAD'
 
-	return swagger
+    return swagger
