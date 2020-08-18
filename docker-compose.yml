@@ -1,7 +1,7 @@
 assets:
     image: u1ih/yoisho-assets:latest
     ports:
-        - "8081:80"
+        - "8081:8080"
 
 currency:
     image: u1ih/yoisho-currency:latest
