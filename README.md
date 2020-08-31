@@ -8,15 +8,15 @@ Webservices and REST APIs that expose bank related data services with dynamic co
 
 Available APIs and Webservices:
 
+* Account Info & Balance - OAuth (3-legged)
+* Credit Card Balance - Full CRUDL REST interface (Create, Read, Update, Delete, List)
 * Bank Assets - SOAP/XML, 2 methods
 * Currency Exchange Rates - REST/JSON, 1 parameter
-* Payments - GraphQL (currently in development, coming soon)
+* Payments - (currently in development, coming soon)
 * Stock Quote - REST/JSON, 0 parameters, cached output.
 * Fixed Deposit Calculator - REST/JSON, 2 parameters, semantic error handling, complex output
-* Account Balance - OAuth (3-legged)
 * Investments - /v1 and /v2 endpoints with respective Swagger specs
 * ATM Locator - Full CRUDL REST interface (Create, Read, Update, Delete, List)
-* Credit Card Balance - Full CRUDL REST interface (Create, Read, Update, Delete, List)
 * Short Loan Product - Full CRUDL REST interface (Create, Read, Update, Delete, List)
 
 Looking for a quick way to deploy? [Docker Compose](docker-compose.yml) | [Chef Cookbook](chef-cookbook)
