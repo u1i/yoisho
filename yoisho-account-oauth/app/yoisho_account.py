@@ -185,7 +185,7 @@ def getaccinfo():
     if access_token[0] == "e":
         user = "dave"
         catch = 1
-        return_data = {"account_owner": "dave", "full name": "Dave Thompson", \
+        return_data = {"account_owner": "dave", "fullname": "Dave Thompson", \
         "email": "daveth271@gmail.com", "address": "491-1295, Nishimiyanosawa 6-jo, Teine-ku Sapporo-shi, Hokkaido", \
         "phone": "+8183-977-7817"}
 
@@ -193,7 +193,7 @@ def getaccinfo():
         user = "jane"
         catch = 1
         user = "jane"
-        return_data = {"account_owner": "dave", "full name": "Jane Hamamoto", \
+        return_data = {"account_owner": "dave", "fullname": "Jane Hamamoto", \
         "email": "kumori18@yahoo.jp", "address": "376-1062, Machi, Ogawara-machi Shibata-gun, Miyagi", \
         "phone": "+8128-945-7273"}
 

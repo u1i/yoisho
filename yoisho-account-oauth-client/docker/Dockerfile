@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.6.5
 MAINTAINER uli.hitzel@gmail.com
 
 EXPOSE 8080
