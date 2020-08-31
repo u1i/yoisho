@@ -21,7 +21,7 @@ Available APIs and Webservices:
 
 Looking for a quick way to deploy? [Docker Compose](docker-compose.yml) | [Chef Cookbook](chef-cookbook)
 
-Some of these endpoints you can consume online: [Live Endpoints](http://backend.yoisho.dob.jp/)
+Some of these endpoints you can consume online: [Live Endpoints](http://backend.yoisho.dob.jp/) | [Developer Portal](https://developer.yoisho.dob.jp/)
 
 # Bank Assets - SOAP/XML
 
