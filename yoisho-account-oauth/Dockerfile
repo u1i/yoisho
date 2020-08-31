@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.6.5
 MAINTAINER uli.hitzel@gmail.com
 
 EXPOSE 8080
@@ -12,5 +12,3 @@ COPY app /app
 RUN ln -s /app/views /views
 
 CMD ["python","/app/server.py"]
-
-

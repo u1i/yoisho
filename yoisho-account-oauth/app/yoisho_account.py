@@ -167,3 +167,47 @@ def getbalance():
         return '{"error":"access_token has expired"}'
 
     return dict(account_owner=user, account_balance=accounts[user])
+
+@app.get('/info')
+def getaccinfo():
+
+    try:
+        #access_token = request.query['access_token']
+        bearer = request.environ.get('HTTP_AUTHORIZATION','')
+        access_token=bearer[7:]
+    except:
+        response.content_type = "application/json"
+        response.status = 400
+        return '{"error":"invalid request, access_token mising"}'
+
+    # identify which user we have in the token
+    catch = 0
+    if access_token[0] == "e":
+        user = "dave"
+        catch = 1
+        return_data = {"account_owner": "dave", "full name": "Dave Thompson", \
+        "email": "daveth271@gmail.com", "address": "491-1295, Nishimiyanosawa 6-jo, Teine-ku Sapporo-shi, Hokkaido", \
+        "phone": "+8183-977-7817"}
+
+    if access_token[0] == "f":
+        user = "jane"
+        catch = 1
+        user = "jane"
+        return_data = {"account_owner": "dave", "full name": "Jane Hamamoto", \
+        "email": "kumori18@yahoo.jp", "address": "376-1062, Machi, Ogawara-machi Shibata-gun, Miyagi", \
+        "phone": "+8128-945-7273"}
+
+    if catch == 0:
+        response.content_type = "application/json"
+        response.status = 400
+        return '{"error":"invalid access_token "}'
+
+    token_time = int(base64.urlsafe_b64decode(access_token[41:]))
+    current_time=int(time.time())
+
+    if current_time - token_time > token_expiration_seconds:
+        response.content_type = "application/json"
+        response.status = 400
+        return '{"error":"access_token has expired"}'
+
+    return dict(return_data)

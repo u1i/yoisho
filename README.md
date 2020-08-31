@@ -223,7 +223,7 @@ This API calculates the total interest earned from a fixed deposit, along with a
 
 > {"info": "Current interest rate is 3.15% pa.", "yield_breakdown_by_year": [{"amount": "50,000.00", "year": "1"}, {"amount": "51,575.00", "year": "2"}, {"amount": "53,199.61", "year": "3"}, {"amount": "54,875.40", "year": "4"}, {"amount": "56,603.98", "year": "5"}, {"amount": "58,387.00", "year": "6"}, {"amount": "60,226.19", "year": "7"}, {"amount": "62,123.32", "year": "8"}, {"amount": "64,080.20", "year": "9"}, {"amount": "66,098.73", "year": "10"}, {"amount": "68,180.84", "year": "11"}, {"amount": "70,328.53", "year": "12"}], "deposit_amount": "50,000.00", "yield_amount": "70,328.53", "years": "12"}
 
-# Account Balance - REST/JSON OAuth
+# Account Info & Balance - REST/JSON OAuth
 
 Gives you an account balance API with a 3-legged OAuth flow including consumer banking login.
 
@@ -264,9 +264,19 @@ Use the code from the previous step to exchange it for an access token. Of cours
 > {"token_type": "bearer", "scope": "read", "access_token": "eSlcNwnLxTuzsYXyzFrhGGU3mrCKPxQ5fy51Jx93.MTUzMjM1NDM0OA=="}
 >
 
+### Get account info for user
+
+Now with this access token we can call the actual API and retrieve the account info from the resource owner, which is the banking client.
+
+`curl -X GET http://localhost:8080/info -H 'Authorization: Bearer eSlcNwnLxTuzsYXyzFrhGGU3mrCKPxQ5fy51Jx93.MTUzMjM1NDM0OA=='`
+
+> {"account_owner": "dave", "full name": "Dave Thompson", "email": "daveth271@gmail.com", "address": "491-1295, Nishimiyanosawa 6-jo, Teine-ku Sapporo-shi, Hokkaido", "phone": "+8183-977-7817"}
+> 
+
+
 ### Get account balance for user
 
-Now with this access token we can call the actual API and retrieve the account balance from the resource owner, which is the banking client.
+With the same access token we retrieve the account balance from the resource owner, which is the banking client.
 
 `curl -X GET http://localhost:8080/balance -H 'Authorization: Bearer eSlcNwnLxTuzsYXyzFrhGGU3mrCKPxQ5fy51Jx93.MTUzMjM1NDM0OA=='`
 
