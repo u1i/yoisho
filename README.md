@@ -25,7 +25,8 @@ Looking for a quick way to deploy? [Docker Compose](docker-compose.yml) | [Chef 
 
 A webservice that gives you total assets and debt of the bank. Each request will produce a slightly different result - it's a busy bank so cash is flowing in & out constantly!
 
-### Run the container (Attention: exposed port has recently changed!)
+### Run the container 
+
 `docker run -d -p 8080:8080 u1ih/yoisho-assets`
 
 ### Get the WSDL
