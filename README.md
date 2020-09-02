@@ -1,10 +1,10 @@
 # Yoisho Banking Corporation
 
-[![Python 2.7](https://img.shields.io/badge/python-2.7-blue.svg)](https://www.python.org/downloads/release/python-270/) [![docker pulls](https://img.shields.io/badge/dynamic/json.svg?label=Docker%20Pulls%20(Currency)&url=https%3A%2F%2Fhub.docker.com%2Fv2%2Frepositories%2Fu1ih%2Fyoisho-currency%2F&query=$.pull_count&colorB=2)](https://hub.docker.com/r/u1ih/yoisho-currency/) [![docker pulls](https://img.shields.io/badge/dynamic/json.svg?label=Docker%20Pulls%20(Assets)&url=https%3A%2F%2Fhub.docker.com%2Fv2%2Frepositories%2Fu1ih%2Fyoisho-assets%2F&query=$.pull_count&colorB=2)](https://hub.docker.com/r/u1ih/yoisho-assets/) [![docker pulls](https://img.shields.io/badge/dynamic/json.svg?label=Docker%20Pulls%20(ATM)&url=https%3A%2F%2Fhub.docker.com%2Fv2%2Frepositories%2Fu1ih%2Fyoisho-atm%2F&query=$.pull_count&colorB=2)](https://hub.docker.com/r/u1ih/yoisho-atm/) [![docker pulls](https://img.shields.io/badge/dynamic/json.svg?label=Docker%20Pulls%20(Deposit)&url=https%3A%2F%2Fhub.docker.com%2Fv2%2Frepositories%2Fu1ih%2Fyoisho-deposit%2F&query=$.pull_count&colorB=2)](https://hub.docker.com/r/u1ih/yoisho-deposit/) [![docker pulls](https://img.shields.io/badge/dynamic/json.svg?label=Docker%20Pulls%20(Creditcard)&url=https%3A%2F%2Fhub.docker.com%2Fv2%2Frepositories%2Fu1ih%2Fyoisho-creditcard%2F&query=$.pull_count&colorB=2)](https://hub.docker.com/r/u1ih/yoisho-creditcard/) [![docker pulls](https://img.shields.io/badge/dynamic/json.svg?label=Docker%20Pulls%20(StockQuote)&url=https%3A%2F%2Fhub.docker.com%2Fv2%2Frepositories%2Fu1ih%2Fyoisho-stockquote%2F&query=$.pull_count&colorB=2)](https://hub.docker.com/r/u1ih/yoisho-stockquote/) [![docker pulls](https://img.shields.io/badge/dynamic/json.svg?label=Docker%20Pulls%20(Invest)&url=https%3A%2F%2Fhub.docker.com%2Fv2%2Frepositories%2Fu1ih%2Fyoisho-invest%2F&query=$.pull_count&colorB=2)](https://hub.docker.com/r/u1ih/yoisho-invest/) [![docker pulls](https://img.shields.io/badge/dynamic/json.svg?label=Docker%20Pulls%20(Loan)&url=https%3A%2F%2Fhub.docker.com%2Fv2%2Frepositories%2Fu1ih%2Fyoisho-loan%2F&query=$.pull_count&colorB=2)](https://hub.docker.com/r/u1ih/yoisho-loan/) [![docker pulls](https://img.shields.io/badge/dynamic/json.svg?label=Docker%20Pulls%20(Account)&url=https%3A%2F%2Fhub.docker.com%2Fv2%2Frepositories%2Fu1ih%2Fyoisho-account%2F&query=$.pull_count&colorB=2)](https://hub.docker.com/r/u1ih/yoisho-account/) [![GitHub license](https://img.shields.io/github/license/u1i/bambleweeny.svg)](https://github.com/u1i/yoisho/blob/master/LICENSE) [![GitHub issues](https://img.shields.io/github/issues/u1i/yoisho.svg)](https://GitHub.com/u1i/yoisho/issues/) 
+[![Python 2.7](https://img.shields.io/badge/python-2.7-blue.svg)](https://www.python.org/downloads/release/python-270/) [![docker pulls](https://img.shields.io/badge/dynamic/json.svg?label=Docker%20Pulls%20(Currency)&url=https%3A%2F%2Fhub.docker.com%2Fv2%2Frepositories%2Fu1ih%2Fyoisho-currency%2F&query=$.pull_count&colorB=2)](https://hub.docker.com/r/u1ih/yoisho-currency/) [![docker pulls](https://img.shields.io/badge/dynamic/json.svg?label=Docker%20Pulls%20(Assets)&url=https%3A%2F%2Fhub.docker.com%2Fv2%2Frepositories%2Fu1ih%2Fyoisho-assets%2F&query=$.pull_count&colorB=2)](https://hub.docker.com/r/u1ih/yoisho-assets/) [![docker pulls](https://img.shields.io/badge/dynamic/json.svg?label=Docker%20Pulls%20(ATM)&url=https%3A%2F%2Fhub.docker.com%2Fv2%2Frepositories%2Fu1ih%2Fyoisho-atm%2F&query=$.pull_count&colorB=2)](https://hub.docker.com/r/u1ih/yoisho-atm/) [![docker pulls](https://img.shields.io/badge/dynamic/json.svg?label=Docker%20Pulls%20(Deposit)&url=https%3A%2F%2Fhub.docker.com%2Fv2%2Frepositories%2Fu1ih%2Fyoisho-deposit%2F&query=$.pull_count&colorB=2)](https://hub.docker.com/r/u1ih/yoisho-deposit/) [![docker pulls](https://img.shields.io/badge/dynamic/json.svg?label=Docker%20Pulls%20(Creditcard)&url=https%3A%2F%2Fhub.docker.com%2Fv2%2Frepositories%2Fu1ih%2Fyoisho-creditcard%2F&query=$.pull_count&colorB=2)](https://hub.docker.com/r/u1ih/yoisho-creditcard/) [![docker pulls](https://img.shields.io/badge/dynamic/json.svg?label=Docker%20Pulls%20(StockQuote)&url=https%3A%2F%2Fhub.docker.com%2Fv2%2Frepositories%2Fu1ih%2Fyoisho-stockquote%2F&query=$.pull_count&colorB=2)](https://hub.docker.com/r/u1ih/yoisho-stockquote/) [![docker pulls](https://img.shields.io/badge/dynamic/json.svg?label=Docker%20Pulls%20(Invest)&url=https%3A%2F%2Fhub.docker.com%2Fv2%2Frepositories%2Fu1ih%2Fyoisho-invest%2F&query=$.pull_count&colorB=2)](https://hub.docker.com/r/u1ih/yoisho-invest/) [![docker pulls](https://img.shields.io/badge/dynamic/json.svg?label=Docker%20Pulls%20(Loan)&url=https%3A%2F%2Fhub.docker.com%2Fv2%2Frepositories%2Fu1ih%2Fyoisho-loan%2F&query=$.pull_count&colorB=2)](https://hub.docker.com/r/u1ih/yoisho-loan/) [![docker pulls](https://img.shields.io/badge/dynamic/json.svg?label=Docker%20Pulls%20(Account)&url=https%3A%2F%2Fhub.docker.com%2Fv2%2Frepositories%2Fu1ih%2Fyoisho-account%2F&query=$.pull_count&colorB=2)](https://hub.docker.com/r/u1ih/yoisho-account/) [![GitHub license](https://img.shields.io/github/license/u1i/bambleweeny.svg)](https://github.com/u1i/yoisho/blob/master/LICENSE) [![GitHub issues](https://img.shields.io/github/issues/u1i/yoisho.svg)](https://GitHub.com/u1i/yoisho/issues/)
 
 Webservices and REST APIs that expose bank related data services with dynamic content, you can use them for testing and demos. Run them in containers on your local environment or in any cloud that gives you Docker.
 
-<!-- img src="https://raw.githubusercontent.com/u1i/yoisho/master/resources/yoisho-logo.png" width="250" -->
+Some of the endpoints are available online: [Live Endpoints](http://backend.yoisho.dob.jp/) | [Developer Portal](https://developer.yoisho.dob.jp/)
 
 Available APIs and Webservices:
 
@@ -20,8 +20,6 @@ Available APIs and Webservices:
 * Short Loan Product - Full CRUDL REST interface (Create, Read, Update, Delete, List)
 
 Looking for a quick way to deploy? [Docker Compose](docker-compose.yml) | [Chef Cookbook](chef-cookbook)
-
-Some of these endpoints are available online: [Live Endpoints](http://backend.yoisho.dob.jp/) | [Developer Portal](https://developer2.yoisho.dob.jp/)
 
 # Bank Assets - SOAP/XML
 
@@ -271,7 +269,7 @@ Now with this access token we can call the actual API and retrieve the account i
 `curl -X GET http://localhost:8080/info -H 'Authorization: Bearer eSlcNwnLxTuzsYXyzFrhGGU3mrCKPxQ5fy51Jx93.MTUzMjM1NDM0OA=='`
 
 > {"account_owner": "dave", "fullname": "Dave Thompson", "email": "daveth271@gmail.com", "address": "491-1295, Nishimiyanosawa 6-jo, Teine-ku Sapporo-shi, Hokkaido", "phone": "+8183-977-7817"}
-> 
+>
 
 
 ### Get account balance for user
@@ -281,7 +279,7 @@ With the same access token we retrieve the account balance from the resource own
 `curl -X GET http://localhost:8080/balance -H 'Authorization: Bearer eSlcNwnLxTuzsYXyzFrhGGU3mrCKPxQ5fy51Jx93.MTUzMjM1NDM0OA=='`
 
 > {"account_owner": "dave", "account_balance": "10,187.91"}
-> 
+>
 
 ### OAuth client - Python implementation
 
