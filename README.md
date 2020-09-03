@@ -19,7 +19,7 @@ Available APIs and Webservices:
 * ATM Locator - Full CRUDL REST interface (Create, Read, Update, Delete, List)
 * Short Loan Product - Full CRUDL REST interface (Create, Read, Update, Delete, List)
 
-![](./resources/devp1.png)
+[![](./resources/devp1.png)](https://developer.yoisho.dob.jp/)
 
 Looking for a quick way to deploy? [Docker Compose](docker-compose.yml) | [Chef Cookbook](chef-cookbook)
 
