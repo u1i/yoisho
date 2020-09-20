@@ -151,6 +151,11 @@ span.psw {
       <input type="password" placeholder="Enter Password" name="psw" required>
       <input type="hidden" name="redirect" value="{{ redirect_uri }}">
       <input type="hidden" name="client_id" value="{{ client_id }}">
+      By clicking 'Login' you give your consent so this app can access:<br>
+      <ul>
+      <li>your personal details: name, address, contact details</li>
+      <li>your current account balance</li>
+      </ul>
       <button type="submit">Login</button>
 
     </div>
