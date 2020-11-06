@@ -4,7 +4,8 @@
 
 Open Banking APIs that expose simplified data services with plausible & dynamic content – great for enablement, demos, and POCs. Run them in containers on your local environment or in any cloud that gives you Docker.
 
-Some of the endpoints are available online: [Live Endpoints](http://backend.yoisho.dob.jp/) | [Developer Portal](https://developer.yoisho.dob.jp/)
+Some of the endpoints are available online: [Live Endpoints](http://backend.yoisho.dob.jp/)
+The bank also has a [public website](https://yoisho.dob.jp/) and a [developer portal](https://developer.yoisho.dob.jp/).
 
 Available APIs and Webservices:
 
@@ -19,7 +20,10 @@ Available APIs and Webservices:
 * ATM Locator - Full CRUDL REST interface (Create, Read, Update, Delete, List)
 * Short Loan Product - Full CRUDL REST interface (Create, Read, Update, Delete, List)
 
-[![](./resources/devp1.png)](https://developer.yoisho.dob.jp/)
+[![](./resources/sites1.jpg)](https://developer.yoisho.dob.jp/)
+
+* [Public Website](https://yoisho.dob.jp/)
+* [Developer Portal](https://developer.yoisho.dob.jp/)
 
 Looking for a quick way to deploy? [Docker Compose](docker-compose.yml) | [Chef Cookbook](chef-cookbook)
 
