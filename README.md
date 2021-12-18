@@ -4,7 +4,7 @@
 
 Open Banking APIs that expose simplified data services with plausible & dynamic content – great for enablement, demos, and POCs. Run them in containers on your local environment or in any cloud that gives you Docker.
 
-Some of the endpoints are available online: [Live Endpoints](http://backend.yoisho.dob.jp/)
+Some of the endpoints are available online: [Live Endpoints](https://backend.yoisho.dob.jp/)
 The bank also has a [public website](https://yoisho.dob.jp/) and a [developer portal](https://developer.yoisho.dob.jp/).
 
 Available APIs and Webservices:
