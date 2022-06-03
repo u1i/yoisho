@@ -1,5 +1,5 @@
 backports.functools-lru-cache==1.5
-bottle==0.12.13
+bottle==0.12.20
 cheroot==6.3.3
 CherryPy==17.0.0
 jaraco.functools==1.20
